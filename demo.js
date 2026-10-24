@@ -189,6 +189,19 @@
     });
   }
 
+  function gallery() {
+    var main = document.querySelector(".gallery .product-img img");
+    document.querySelectorAll(".gallery-thumb").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        main.src = btn.getAttribute("data-src");
+        document.querySelectorAll(".gallery-thumb").forEach(function (b) {
+          b.className = b === btn ? "gallery-thumb active" : "gallery-thumb";
+          b.setAttribute("aria-pressed", String(b === btn));
+        });
+      });
+    });
+  }
+
   // --- корзина и оформление ---
 
   function emptyCart(text) {
@@ -368,7 +381,10 @@
   banner();
   renderBadge();
   blockForms();
-  if (DEMO.path.indexOf("/product/") === 0) productPage();
+  if (DEMO.path.indexOf("/product/") === 0) {
+    productPage();
+    gallery();
+  }
   if (DEMO.path === "/cart") cartPage();
   if (DEMO.path === "/checkout") checkoutPage();
   if (DEMO.path === "/catalog") catalogPage();
