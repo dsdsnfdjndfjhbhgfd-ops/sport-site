@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model User {
@@ -40,6 +41,8 @@ model Product {
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
   orderItems  OrderItem[]
+
+  @@index([categoryId])
 }
 
 model Order {
@@ -55,6 +58,8 @@ model Order {
   paymentId       String?
   createdAt       DateTime    @default(now())
   items           OrderItem[]
+
+  @@index([userId])
 }
 
 model OrderItem {
@@ -67,4 +72,16 @@ model OrderItem {
   size      String
   price     Int
   quantity  Int
+
+  @@index([orderId])
+  @@index([productId])
+}
+
+// Фото, загруженные через админку. Хранятся в базе, потому что у хостинга
+// (Vercel) нет постоянного диска. Отдаются по адресу /api/images/[id].
+model Image {
+  id          String   @id @default(cuid())
+  contentType String
+  data        Bytes
+  createdAt   DateTime @default(now())
 }

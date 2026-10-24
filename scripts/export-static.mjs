@@ -7,7 +7,7 @@
 //
 // Запуск:
 //   npm run setup && npm run build && npm start   (в отдельном терминале)
-//   BASE_PATH=/sport-site node scripts/export-static.mjs
+//   DEMO_ORDERS=1 BASE_PATH=/sport-site node scripts/export-static.mjs
 // Результат — папка out/, её содержимое публикуется в ветку gh-pages.
 
 import { cp, mkdir, rm, writeFile, readFile } from "node:fs/promises";
@@ -24,7 +24,8 @@ const db = new PrismaClient();
 // --- демо-данные: несколько заказов, чтобы кабинет и админка не были пустыми ---
 
 async function ensureDemoOrders(admin) {
-  if ((await db.order.count()) > 0) return;
+  // только для локальной базы: в рабочую базу демо-заказы не пишем
+  if (process.env.DEMO_ORDERS !== "1" || (await db.order.count()) > 0) return;
   const customer = await db.user.upsert({
     where: { email: "ivan@example.com" },
     update: {},

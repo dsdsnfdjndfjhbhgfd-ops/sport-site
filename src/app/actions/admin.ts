@@ -1,8 +1,5 @@
 "use server";
 
-import { mkdir, writeFile } from "fs/promises";
-import path from "path";
-import { randomUUID } from "crypto";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
@@ -15,13 +12,7 @@ export interface AdminFormState {
   error?: string;
 }
 
-const UPLOAD_DIR = path.join(process.cwd(), "uploads");
-const IMAGE_TYPES: Record<string, string> = {
-  "image/jpeg": ".jpg",
-  "image/png": ".png",
-  "image/webp": ".webp",
-  "image/svg+xml": ".svg",
-};
+const IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp", "image/svg+xml"];
 
 function slugify(text: string) {
   const map: Record<string, string> = {
@@ -48,14 +39,15 @@ async function uniqueSlug(base: string, excludeId?: string) {
   }
 }
 
+// фото хранятся в базе: у хостинга нет постоянного диска
 async function saveImage(file: File) {
-  const ext = IMAGE_TYPES[file.type];
-  if (!ext) throw new Error("Поддерживаются JPG, PNG, WEBP и SVG");
-  if (file.size > 5 * 1024 * 1024) throw new Error("Файл больше 5 МБ");
-  await mkdir(UPLOAD_DIR, { recursive: true });
-  const name = randomUUID() + ext;
-  await writeFile(path.join(UPLOAD_DIR, name), Buffer.from(await file.arrayBuffer()));
-  return `/uploads/${name}`;
+  if (!IMAGE_TYPES.includes(file.type)) throw new Error("Поддерживаются JPG, PNG, WEBP и SVG");
+  // Vercel принимает запросы не больше 4,5 МБ
+  if (file.size > 4 * 1024 * 1024) throw new Error("Файл больше 4 МБ");
+  const image = await db.image.create({
+    data: { contentType: file.type, data: Buffer.from(await file.arrayBuffer()) },
+  });
+  return `/api/images/${image.id}`;
 }
 
 const productSchema = z.object({
