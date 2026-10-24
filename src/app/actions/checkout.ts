@@ -6,6 +6,7 @@ import { db } from "@/lib/db";
 import { getCurrentUser, requireUser } from "@/lib/auth";
 import { shippingFor } from "@/lib/money";
 import { STORE_NAME } from "@/lib/config";
+import { sizeKey } from "@/lib/sizes";
 import { applyPaymentStatus, getProvider } from "@/lib/payments";
 
 export interface CheckoutState {
@@ -61,13 +62,21 @@ export async function placeOrder(_: CheckoutState, formData: FormData): Promise<
   // Цены всегда берём из базы, а не из браузера
   const products = await db.product.findMany({
     where: { id: { in: data.items.map((i) => i.productId) }, active: true },
+    include: { sizes: true },
   });
   const lines = [];
   for (const item of data.items) {
     const product = products.find((p) => p.id === item.productId);
     if (!product) return { error: "Один из товаров больше недоступен. Обновите корзину." };
-    if (product.stock < item.quantity) {
-      return { error: `«${product.name}»: в наличии только ${product.stock} шт.` };
+    const variant = product.sizes.find((s) => s.size === sizeKey(item.size));
+    if (!variant) return { error: `«${product.name}»: размера ${item.size} больше нет. Обновите корзину.` };
+    if (variant.stock < item.quantity) {
+      const where = variant.size ? `размера ${variant.size} ` : "";
+      return {
+        error: variant.stock
+          ? `«${product.name}»: ${where}в наличии только ${variant.stock} шт.`
+          : `«${product.name}»: ${where}закончился. Удалите его из корзины.`,
+      };
     }
     lines.push({
       productId: product.id,

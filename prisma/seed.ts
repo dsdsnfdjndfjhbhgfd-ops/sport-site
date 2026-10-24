@@ -29,6 +29,8 @@ const products = [
   ["sumka-sport", "Спортивная сумка Team", "aksessuary", 2790, null, "bag-black", ""],
 ] as const;
 
+const DEMO_STOCK = [12, 7, 3, 0, 9, 1, 15, 5];
+
 async function main() {
   for (const c of categories) {
     await db.category.upsert({ where: { slug: c.slug }, update: {}, create: c });
@@ -46,9 +48,15 @@ async function main() {
         price: price * 100,
         oldPrice: oldPrice ? oldPrice * 100 : null,
         imageUrl: `/products/${image}.svg`,
-        sizes,
-        stock: 50,
         description: `${name} — лёгкая и дышащая модель для тренировок и игр.\n\nСостав: 100% полиэстер.\nУход: машинная стирка при 30°C.`,
+        // разные остатки, чтобы на витрине были и ходовые, и почти распроданные размеры
+        sizes: {
+          create: (sizes ? sizes.split(",") : [""]).map((size, position) => ({
+            size,
+            position,
+            stock: size ? DEMO_STOCK[(position + slug.length) % DEMO_STOCK.length] : 8,
+          })),
+        },
       },
     });
   }

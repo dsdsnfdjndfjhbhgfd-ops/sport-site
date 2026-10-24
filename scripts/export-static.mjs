@@ -136,7 +136,7 @@ async function main() {
   const adminCookie = `session=${token}`;
 
   const products = Object.fromEntries(
-    (await db.product.findMany()).map((p) => [
+    (await db.product.findMany({ include: { sizes: { orderBy: { position: "asc" } } } })).map((p) => [
       p.slug,
       {
         productId: p.id,
@@ -144,8 +144,7 @@ async function main() {
         name: p.name,
         price: p.price,
         imageUrl: p.imageUrl.startsWith("/") ? BASE + p.imageUrl : p.imageUrl,
-        sizes: p.sizes.split(",").map((s) => s.trim()).filter(Boolean),
-        stock: p.stock,
+        sizes: p.sizes.map(({ size, stock }) => ({ size, stock })),
       },
     ]),
   );

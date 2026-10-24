@@ -15,7 +15,10 @@ export async function generateMetadata({ params }: Params) {
 
 export default async function ProductPage({ params }: Params) {
   const { slug } = await params;
-  const product = await db.product.findUnique({ where: { slug }, include: { category: true } });
+  const product = await db.product.findUnique({
+    where: { slug },
+    include: { category: true, sizes: { orderBy: { position: "asc" } } },
+  });
   if (!product || !product.active) notFound();
 
   const related = await db.product.findMany({
@@ -23,7 +26,6 @@ export default async function ProductPage({ params }: Params) {
     take: 4,
     include: { category: true },
   });
-  const sizes = product.sizes.split(",").map((s) => s.trim()).filter(Boolean);
   const onSale = product.oldPrice && product.oldPrice > product.price;
 
   return (
@@ -51,8 +53,7 @@ export default async function ProductPage({ params }: Params) {
               price: product.price,
               imageUrl: product.imageUrl,
             }}
-            sizes={sizes}
-            stock={product.stock}
+            sizes={product.sizes.map(({ size, stock }) => ({ size, stock }))}
           />
           <h3 style={{ marginTop: 32 }}>Описание</h3>
           <p className="description">{product.description}</p>
