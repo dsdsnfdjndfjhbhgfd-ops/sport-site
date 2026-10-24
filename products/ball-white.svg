@@ -1,0 +1,3 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><circle cx="250" cy="250" r="170" fill="#f7f7f7"/>
+    <path d="M250 175 L320 225 L295 305 L205 305 L180 225 Z" fill="#1b1b1b"/>
+    <path d="M250 80 L250 175 M320 225 L410 195 M295 305 L350 385 M205 305 L150 385 M180 225 L90 195" stroke="#1b1b1b" stroke-width="10"/></svg>
