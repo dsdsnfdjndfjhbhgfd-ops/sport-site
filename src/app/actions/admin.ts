@@ -50,11 +50,25 @@ async function saveImage(file: File) {
   return `/api/images/${image.id}`;
 }
 
+/** Загружает одно фото товара; форма вызывает её для каждого выбранного файла. */
+export async function uploadImage(formData: FormData): Promise<{ url?: string; error?: string }> {
+  await requireAdmin();
+  const file = formData.get("file");
+  if (!(file instanceof File) || file.size === 0) return { error: "Файл не выбран" };
+  try {
+    return { url: await saveImage(file) };
+  } catch (e) {
+    return { error: (e as Error).message };
+  }
+}
+
+const IMAGE_URL = /^(\/[^\s]*|https?:\/\/[^\s]+)$/;
+const STORED_IMAGE = /^\/api\/images\/([^/?#]+)$/;
+
 const productSchema = z.object({
   name: z.string().trim().min(2, "Введите название"),
   description: z.string().trim().min(1, "Введите описание"),
   categoryId: z.string().min(1, "Выберите категорию"),
-  imageUrl: z.string().trim(),
 });
 
 /** Размеры и остатки из формы: поля sizeName и sizeStock идут парами. */
@@ -91,16 +105,9 @@ export async function saveProduct(
   const oldPrice = oldPriceRaw ? parsePrice(oldPriceRaw) : null;
   if (oldPriceRaw && oldPrice === null) return { error: "Некорректная старая цена" };
 
-  let imageUrl = data.imageUrl;
-  const file = formData.get("image");
-  if (file instanceof File && file.size > 0) {
-    try {
-      imageUrl = await saveImage(file);
-    } catch (e) {
-      return { error: (e as Error).message };
-    }
-  }
-  if (!imageUrl) return { error: "Добавьте изображение (файл или ссылку)" };
+  const images = [...new Set(formData.getAll("images").map((v) => String(v).trim()).filter(Boolean))];
+  if (!images.length) return { error: "Добавьте хотя бы одно фото" };
+  if (images.some((url) => !IMAGE_URL.test(url))) return { error: "Некорректная ссылка на фото" };
 
   const fields = {
     name: data.name,
@@ -108,15 +115,20 @@ export async function saveProduct(
     categoryId: data.categoryId,
     price,
     oldPrice: oldPrice && oldPrice > price ? oldPrice : null,
-    imageUrl,
+    imageUrl: images[0],
     active: formData.get("active") === "on",
   };
 
   const slug = productId ? undefined : await uniqueSlug(data.name);
+  const before = productId ? await db.productImage.findMany({ where: { productId } }) : [];
   await db.$transaction(async (tx) => {
     const product = productId
       ? await tx.product.update({ where: { id: productId }, data: fields })
       : await tx.product.create({ data: { ...fields, slug: slug! } });
+    await tx.productImage.deleteMany({ where: { productId: product.id } });
+    await tx.productImage.createMany({
+      data: images.map((url, position) => ({ productId: product.id, url, position })),
+    });
     await tx.productSize.deleteMany({
       where: { productId: product.id, size: { notIn: sizes.map((s) => s.size) } },
     });
@@ -128,8 +140,19 @@ export async function saveProduct(
       });
     }
   });
+  await deleteUnusedImages(before.map((i) => i.url).filter((url) => !images.includes(url)));
   revalidatePath("/", "layout");
   redirect("/admin/products");
+}
+
+/** Удаляет из базы загруженные фото, которые больше не стоят ни у одного товара. */
+async function deleteUnusedImages(urls: string[]) {
+  for (const url of urls) {
+    const id = url.match(STORED_IMAGE)?.[1];
+    if (!id) continue;
+    const used = await db.productImage.count({ where: { url } });
+    if (!used) await db.image.deleteMany({ where: { id } });
+  }
 }
 
 export async function updatePrice(productId: string, formData: FormData) {
@@ -161,7 +184,9 @@ export async function deleteProduct(productId: string) {
     // товар есть в заказах — просто скрываем
     await db.product.update({ where: { id: productId }, data: { active: false } });
   } else {
+    const images = await db.productImage.findMany({ where: { productId } });
     await db.product.delete({ where: { id: productId } });
+    await deleteUnusedImages(images.map((i) => i.url));
   }
   revalidatePath("/", "layout");
   redirect("/admin/products");

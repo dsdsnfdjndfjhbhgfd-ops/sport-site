@@ -2,6 +2,7 @@
 
 import { useActionState, useState } from "react";
 import type { AdminFormState } from "@/app/actions/admin";
+import { PhotosEditor } from "./PhotosEditor";
 
 interface Props {
   action: (state: AdminFormState, data: FormData) => Promise<AdminFormState>;
@@ -14,6 +15,7 @@ interface Props {
     oldPrice: number | null;
     sizes: { size: string; stock: number }[];
     imageUrl: string;
+    images: { url: string }[];
     active: boolean;
   };
 }
@@ -132,7 +134,8 @@ function SizesEditor({ initial }: { initial?: { size: string; stock: number }[] 
 
 export function ProductForm({ action, categories, product }: Props) {
   const [state, formAction, pending] = useActionState(action, {});
-  const [preview, setPreview] = useState(product?.imageUrl ?? "");
+  const [uploading, setUploading] = useState(false);
+  const images = product ? (product.images.length ? product.images.map((i) => i.url) : [product.imageUrl]) : [];
 
   return (
     <form action={formAction} className="panel">
@@ -175,40 +178,12 @@ export function ProductForm({ action, categories, product }: Props) {
         <label htmlFor="description">Описание</label>
         <textarea id="description" name="description" defaultValue={product?.description} required />
       </div>
-      <div className="field-row">
-        <div className="field">
-          <label htmlFor="image">Фото (файл)</label>
-          <input
-            id="image"
-            name="image"
-            type="file"
-            accept="image/jpeg,image/png,image/webp,image/svg+xml"
-            onChange={(e) => {
-              const file = e.target.files?.[0];
-              if (file) setPreview(URL.createObjectURL(file));
-            }}
-          />
-        </div>
-        <div className="field">
-          <label htmlFor="imageUrl">…или ссылка на фото</label>
-          <input
-            id="imageUrl"
-            name="imageUrl"
-            defaultValue={product?.imageUrl}
-            placeholder="https://…"
-            onChange={(e) => setPreview(e.target.value)}
-          />
-        </div>
-      </div>
-      {preview && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={preview} alt="" style={{ width: 160, height: 160, objectFit: "contain", background: "#f6f6f6", marginBottom: 16 }} />
-      )}
+      <PhotosEditor initial={images} onBusyChange={setUploading} />
       <label className="checkbox">
         <input type="checkbox" name="active" defaultChecked={product?.active ?? true} /> Показывать на сайте
       </label>
-      <button className="btn" disabled={pending}>
-        {pending ? "Сохраняем…" : "Сохранить"}
+      <button className="btn" disabled={pending || uploading}>
+        {pending ? "Сохраняем…" : uploading ? "Ждём загрузку фото…" : "Сохранить"}
       </button>
     </form>
   );

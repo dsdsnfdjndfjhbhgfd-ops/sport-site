@@ -69,5 +69,7 @@ for (const [name, shape, c, a] of items) {
   ${silhouette}
 </svg>\n`;
   writeFileSync(`public/products/${name}.svg`, svg);
+  // второе фото для галереи — крупный план верхней части
+  writeFileSync(`public/products/${name}-detail.svg`, svg.replace('viewBox="0 0 500 500"', 'viewBox="110 40 280 280"'));
 }
-console.log(`Создано ${items.length} изображений`);
+console.log(`Создано ${items.length * 2} изображений`);

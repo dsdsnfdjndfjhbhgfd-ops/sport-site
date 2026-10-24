@@ -101,7 +101,7 @@ function rewrite(html, { pageUrl, extraHead = "" }) {
   html = html
     .replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "")
     .replace(/<link\b[^>]*\bas="script"[^>]*\/?>/g, "")
-    .replace(/\s(href|src|action)="(\/[^"]*)"/g, (_, attr, raw) => {
+    .replace(/\s(href|src|data-src|action)="(\/[^"]*)"/g, (_, attr, raw) => {
       const value = decode(raw);
       if (value.startsWith("//")) return ` ${attr}="${raw}"`;
       if (isAsset(value.split("?")[0])) return ` ${attr}="${BASE}${value}"`;

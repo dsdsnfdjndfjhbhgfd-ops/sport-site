@@ -48,6 +48,12 @@ async function main() {
         price: price * 100,
         oldPrice: oldPrice ? oldPrice * 100 : null,
         imageUrl: `/products/${image}.svg`,
+        images: {
+          create: [
+            { url: `/products/${image}.svg`, position: 0 },
+            { url: `/products/${image}-detail.svg`, position: 1 },
+          ],
+        },
         description: `${name} — лёгкая и дышащая модель для тренировок и игр.\n\nСостав: 100% полиэстер.\nУход: машинная стирка при 30°C.`,
         // разные остатки, чтобы на витрине были и ходовые, и почти распроданные размеры
         sizes: {
