@@ -101,24 +101,57 @@
     var buy = document.querySelector(".buy-row");
     if (!product || !buy) return;
     var root = buy.parentElement;
-    var size = product.sizes.length === 1 ? product.sizes[0] : "";
+    var named = product.sizes.filter(function (s) {
+      return s.size !== "";
+    });
+    var stockOf = function (name) {
+      var found = named.find(function (s) {
+        return s.size === name;
+      });
+      return found ? found.stock : 0;
+    };
+    var inStock = named.filter(function (s) {
+      return s.stock > 0;
+    });
+    var size = inStock.length === 1 ? inStock[0].size : "";
+    var total = product.sizes.reduce(function (n, s) {
+      return n + s.stock;
+    }, 0);
     var input = buy.querySelector(".qty input");
     var qtyButtons = buy.querySelectorAll(".qty button");
+    var line = root.querySelector(".stock-line");
     var msg = document.createElement("div");
     buy.after(msg);
 
+    function available() {
+      return named.length ? stockOf(size) : total;
+    }
+    function setQty(q) {
+      input.value = Math.min(Math.max(available(), 1), Math.max(1, q || 1));
+    }
+    function renderLine() {
+      if (!line) return;
+      var left = available();
+      var suffix = size ? " размера " + size : "";
+      line.className = left > 0 && left <= 3 ? "stock-line stock-low" : "stock-line";
+      line.textContent =
+        named.length && !size
+          ? "Под каждым размером указано, сколько штук осталось"
+          : (left <= 3 ? "Осталось всего " : "В наличии ") + left + " шт." + suffix;
+    }
+
     root.querySelectorAll(".sizes .size").forEach(function (btn) {
       btn.addEventListener("click", function () {
-        size = btn.textContent.trim();
+        if (btn.disabled) return;
+        size = btn.firstChild.textContent.trim();
         root.querySelectorAll(".sizes .size").forEach(function (b) {
           b.className = b === btn ? "size selected" : "size";
         });
+        setQty(Number(input.value));
+        renderLine();
         msg.innerHTML = "";
       });
     });
-    function setQty(q) {
-      input.value = Math.min(product.stock, Math.max(1, q || 1));
-    }
     qtyButtons[0].addEventListener("click", function () {
       setQty(Number(input.value) - 1);
     });
@@ -129,7 +162,7 @@
       setQty(Number(input.value));
     });
     buy.querySelector(".btn-red").addEventListener("click", function () {
-      if (product.sizes.length && !size) {
+      if (named.length && !size) {
         msg.innerHTML = '<p class="stock-low">Выберите размер</p>';
         return;
       }
