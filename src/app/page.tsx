@@ -24,11 +24,27 @@ export default async function HomePage() {
   return (
     <>
       <section className="hero">
-        <div className="hero-stripes" />
+        <svg className="hero-pitch" viewBox="0 0 1200 760" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+          <g fill="none" stroke="currentColor" strokeWidth="1.5">
+            <rect x="40" y="40" width="1120" height="680" />
+            <line x1="600" y1="40" x2="600" y2="720" />
+            <circle cx="600" cy="380" r="110" />
+            <rect x="976" y="200" width="184" height="360" />
+            <rect x="1098" y="290" width="62" height="180" />
+            <path d="M976 302a96 96 0 0 0 0 156" />
+            <rect x="40" y="200" width="184" height="360" />
+            <rect x="40" y="290" width="62" height="180" />
+            <path d="M224 302a96 96 0 0 1 0 156" />
+          </g>
+          <g fill="currentColor">
+            <circle cx="600" cy="380" r="4" />
+            <circle cx="1036" cy="380" r="4" />
+            <circle cx="164" cy="380" r="4" />
+          </g>
+        </svg>
         <div className="container hero-inner">
-          <div className="hero-kicker">Новая коллекция</div>
-          <h1>Играй на максимум</h1>
-          <p>Форма, тренировочная одежда и экипировка для футбола, бега и зала. Сделано для движения.</p>
+          <h1>Экипировка для тех, кто тренируется всерьёз</h1>
+          <p>Форма, тренировочная одежда и обувь для футбола, бега и зала. Дышащие ткани, точный крой, возврат в течение 30 дней.</p>
           <div className="hero-actions">
             <Link href="/catalog" className="btn btn-red">
               Смотреть каталог
@@ -77,7 +93,7 @@ export default async function HomePage() {
 
       <section className="promo">
         <div className="container">
-          <h2>Скидки до −40% на прошлый сезон</h2>
+          <h2>Прошлый сезон со скидкой до 40%</h2>
           <Link href="/catalog?sale=1" className="btn btn-white">
             Купить со скидкой
           </Link>

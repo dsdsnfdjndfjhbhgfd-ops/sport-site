@@ -4,48 +4,70 @@ import { writeFileSync, mkdirSync } from "fs";
 const shapes = {
   tee: (c, a) => `<path d="M140 70 L200 50 Q250 85 300 50 L360 70 L430 140 L380 195 L350 170 L350 440 L150 440 L150 170 L120 195 L70 140 Z" fill="${c}"/>
     <path d="M200 50 Q250 85 300 50 L292 46 Q250 72 208 46 Z" fill="${a}"/>
-    <path d="M150 300 L350 220 L350 250 L150 330 Z" fill="${a}" opacity=".9"/>`,
+    <path d="M118 188 L378 188" stroke="${a}" stroke-width="3" opacity=".7"/>
+    <circle cx="300" cy="130" r="11" fill="none" stroke="${a}" stroke-width="3"/>`,
   jacket: (c, a) => `<path d="M150 70 L210 50 L250 90 L290 50 L350 70 L420 160 L420 420 L370 420 L360 200 L350 440 L150 440 L140 200 L130 420 L80 420 L80 160 Z" fill="${c}"/>
-    <path d="M247 90 L253 90 L253 440 L247 440 Z" fill="${a}"/>
-    <path d="M80 300 L130 300 L130 320 L80 320 Z M370 300 L420 300 L420 320 L370 320 Z" fill="${a}"/>`,
+    <path d="M248.5 90 L251.5 90 L251.5 440 L248.5 440 Z" fill="${a}"/>
+    <path d="M210 50 L250 90 L290 50" fill="none" stroke="${a}" stroke-width="4"/>
+    <path d="M80 395 L130 395 M370 395 L420 395" stroke="${a}" stroke-width="4"/>`,
   shorts: (c, a) => `<path d="M130 120 L370 120 L400 380 L270 390 L250 230 L230 390 L100 380 Z" fill="${c}"/>
-    <path d="M130 120 L370 120 L372 145 L128 145 Z" fill="${a}"/>
-    <path d="M110 330 L380 330 L385 360 L106 360 Z" fill="${a}" opacity=".8"/>`,
+    <path d="M130 120 L370 120 L372 142 L128 142 Z" fill="${a}" opacity=".85"/>
+    <path d="M370 170 L390 360" stroke="${a}" stroke-width="4"/>`,
   pants: (c, a) => `<path d="M170 60 L330 60 L345 450 L275 450 L250 170 L225 450 L155 450 Z" fill="${c}"/>
-    <path d="M170 60 L330 60 L331 82 L169 82 Z" fill="${a}"/>
-    <path d="M160 90 L168 90 L160 440 L152 440 Z M332 90 L340 90 L348 440 L340 440 Z" fill="${a}"/>`,
+    <path d="M170 60 L330 60 L331 80 L169 80 Z" fill="${a}" opacity=".85"/>
+    <path d="M336 100 L344 430" stroke="${a}" stroke-width="4"/>
+    <path d="M157 430 L223 430 M277 430 L343 430" stroke="${a}" stroke-width="5" opacity=".7"/>`,
   boot: (c, a) => `<path d="M90 300 Q100 200 170 180 L260 170 Q300 230 380 250 Q440 265 430 320 L430 345 L80 345 Z" fill="${c}"/>
-    <path d="M80 345 L430 345 L430 370 L80 370 Z" fill="#222"/>
-    <path d="M150 300 L330 230 L345 250 L160 320 Z" fill="${a}"/>
-    <g fill="#222"><circle cx="120" cy="385" r="9"/><circle cx="200" cy="385" r="9"/><circle cx="330" cy="385" r="9"/><circle cx="400" cy="385" r="9"/></g>`,
+    <path d="M80 345 L430 345 L430 362 L80 362 Z" fill="#0e1f1a" opacity=".85"/>
+    <path d="M170 270 Q260 250 340 238" fill="none" stroke="${a}" stroke-width="6" stroke-linecap="round"/>
+    <path d="M200 196 L232 230 M222 190 L254 224 M244 186 L272 216" stroke="${a}" stroke-width="3" opacity=".7"/>
+    <g fill="#0e1f1a" opacity=".85"><rect x="112" y="362" width="14" height="16"/><rect x="190" y="362" width="14" height="16"/><rect x="320" y="362" width="14" height="16"/><rect x="392" y="362" width="14" height="16"/></g>`,
   ball: (c, a) => `<circle cx="250" cy="250" r="170" fill="${c}"/>
-    <path d="M250 175 L320 225 L295 305 L205 305 L180 225 Z" fill="${a}"/>
-    <path d="M250 80 L250 175 M320 225 L410 195 M295 305 L350 385 M205 305 L150 385 M180 225 L90 195" stroke="${a}" stroke-width="10"/>`,
-  bag: (c, a) => `<rect x="90" y="180" width="320" height="200" rx="40" fill="${c}"/>
-    <path d="M180 180 Q180 110 250 110 Q320 110 320 180" fill="none" stroke="${a}" stroke-width="18"/>
-    <rect x="90" y="270" width="320" height="22" fill="${a}"/>`,
+    <path d="M250 185 L312 230 L288 302 L212 302 L188 230 Z" fill="${a}"/>
+    <path d="M250 80 L250 185 M312 230 L408 200 M288 302 L345 388 M212 302 L155 388 M188 230 L92 200" stroke="${a}" stroke-width="5"/>`,
+  bag: (c, a) => `<rect x="90" y="180" width="320" height="200" rx="28" fill="${c}"/>
+    <path d="M185 180 Q185 115 250 115 Q315 115 315 180" fill="none" stroke="${a}" stroke-width="12"/>
+    <path d="M90 240 L410 240" stroke="${a}" stroke-width="3" opacity=".8"/>
+    <rect x="232" y="262" width="36" height="22" rx="3" fill="none" stroke="${a}" stroke-width="3"/>`,
 };
 
+// оттенки: поле, графит, оксблад, ночной синий, мел, латунь
 const items = [
-  ["tee-red", "tee", "#d7141a", "#ffffff"],
-  ["tee-black", "tee", "#1b1b1b", "#e30613"],
-  ["tee-blue", "tee", "#1d4fb8", "#ffd400"],
-  ["tee-white", "tee", "#f2f2f2", "#1b1b1b"],
-  ["jacket-black", "jacket", "#1b1b1b", "#e30613"],
-  ["jacket-navy", "jacket", "#14234b", "#ffffff"],
-  ["shorts-black", "shorts", "#1b1b1b", "#ffffff"],
-  ["shorts-red", "shorts", "#d7141a", "#111111"],
-  ["pants-black", "pants", "#1b1b1b", "#ffffff"],
-  ["pants-gray", "pants", "#6b6b6b", "#111111"],
-  ["boot-white", "boot", "#f2f2f2", "#e30613"],
-  ["boot-black", "boot", "#1b1b1b", "#ffd400"],
-  ["ball-white", "ball", "#f7f7f7", "#1b1b1b"],
-  ["bag-black", "bag", "#1b1b1b", "#e30613"],
+  ["tee-red", "tee", "#8e2b24", "#ecebe5"],
+  ["tee-black", "tee", "#24282b", "#a88b57"],
+  ["tee-blue", "tee", "#1f2c44", "#ecebe5"],
+  ["tee-white", "tee", "#f4f3ef", "#17322a"],
+  ["jacket-black", "jacket", "#24282b", "#a88b57"],
+  ["jacket-navy", "jacket", "#1f2c44", "#ecebe5"],
+  ["shorts-black", "shorts", "#24282b", "#ecebe5"],
+  ["shorts-red", "shorts", "#8e2b24", "#ecebe5"],
+  ["pants-black", "pants", "#17322a", "#a88b57"],
+  ["pants-gray", "pants", "#6e716d", "#ecebe5"],
+  ["boot-white", "boot", "#f4f3ef", "#17322a"],
+  ["boot-black", "boot", "#24282b", "#a88b57"],
+  ["ball-white", "ball", "#f7f6f2", "#17322a"],
+  ["bag-black", "bag", "#17322a", "#a88b57"],
 ];
+
+// мягкий свет сверху слева и тень на «полу» — вместо плоской заливки
+const defs = `<defs>
+  <linearGradient id="light" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity=".16"/>
+    <stop offset=".55" stop-color="#fff" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".18"/>
+  </linearGradient>
+  <radialGradient id="floor"><stop offset="0" stop-color="#0e1f1a" stop-opacity=".22"/><stop offset="1" stop-color="#0e1f1a" stop-opacity="0"/></radialGradient>
+</defs>`;
 
 mkdirSync("public/products", { recursive: true });
 for (const [name, shape, c, a] of items) {
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">${shapes[shape](c, a)}</svg>\n`;
+  const body = shapes[shape](c, a);
+  const silhouette = body.split("\n")[0].replace(/fill="[^"]*"/, 'fill="url(#light)"');
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">${defs}
+  <ellipse cx="250" cy="468" rx="190" ry="16" fill="url(#floor)"/>
+  ${body}
+  ${silhouette}
+</svg>\n`;
   writeFileSync(`public/products/${name}.svg`, svg);
 }
 console.log(`Создано ${items.length} изображений`);
