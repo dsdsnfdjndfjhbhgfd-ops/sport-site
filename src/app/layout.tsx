@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Inter, Roboto_Condensed } from "next/font/google";
+import { Onest, Unbounded } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/components/CartProvider";
 import { CartLink } from "@/components/CartLink";
@@ -9,11 +9,10 @@ import { db } from "@/lib/db";
 import { STORE_NAME, STORE_TAGLINE, FREE_SHIPPING_FROM } from "@/lib/config";
 import { formatPrice } from "@/lib/money";
 
-const body = Inter({ subsets: ["latin", "cyrillic"], variable: "--font-body" });
-const display = Roboto_Condensed({
+const body = Onest({ subsets: ["latin", "cyrillic"], variable: "--font-body" });
+const display = Unbounded({
   subsets: ["latin", "cyrillic"],
-  weight: ["600", "700", "800"],
-  style: ["normal", "italic"],
+  weight: ["400", "500", "600"],
   variable: "--font-display",
 });
 
@@ -34,7 +33,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="ru" className={`${body.variable} ${display.variable}`}>
       <body>
         <CartProvider>
-          <div className="topbar">Бесплатная доставка от {formatPrice(FREE_SHIPPING_FROM)} · Возврат 30 дней</div>
+          <div className="topbar">Бесплатная доставка от {formatPrice(FREE_SHIPPING_FROM)} и возврат в течение 30 дней</div>
           <header className="header">
             <div className="container header-inner">
               <Link href="/" className="logo">

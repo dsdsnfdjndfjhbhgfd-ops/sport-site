@@ -74,7 +74,7 @@
       el.id = "demo-toast";
       el.style.cssText =
         "position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:100;max-width:min(560px,calc(100% - 32px));" +
-        "background:#111;color:#fff;padding:14px 18px;font-size:14px;line-height:1.4;box-shadow:0 6px 24px rgba(0,0,0,.25)";
+        "background:#17322a;color:#fff;padding:14px 20px;border-radius:12px;font-size:14px;line-height:1.4;box-shadow:0 6px 24px rgba(0,0,0,.25)";
       document.body.appendChild(el);
     }
     el.textContent = text;
@@ -88,7 +88,7 @@
   function banner() {
     var el = document.createElement("div");
     el.style.cssText =
-      "background:#e30613;color:#fff;text-align:center;font-size:13px;padding:8px 16px;line-height:1.4";
+      "background:#d9c9a8;color:#0e1f1a;text-align:center;font-size:13px;padding:8px 16px;line-height:1.4";
     el.textContent =
       "Демо-версия для просмотра: корзина работает, но заказы, вход и изменения в админке не сохраняются.";
     document.body.insertBefore(el, document.body.firstChild);
