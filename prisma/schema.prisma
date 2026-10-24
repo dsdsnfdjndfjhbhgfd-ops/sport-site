@@ -33,16 +33,28 @@ model Product {
   price       Int // в копейках
   oldPrice    Int?
   imageUrl    String
-  sizes       String      @default("S,M,L,XL") // через запятую
-  stock       Int         @default(100)
   active      Boolean     @default(true)
   categoryId  String
   category    Category    @relation(fields: [categoryId], references: [id])
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
   orderItems  OrderItem[]
+  sizes       ProductSize[]
 
   @@index([categoryId])
+}
+
+// Остаток товара по каждому размеру. У товара без размеров (сумка, мяч
+// одного размера) — одна строка с пустым size.
+model ProductSize {
+  id        String  @id @default(cuid())
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  size      String
+  stock     Int     @default(0)
+  position  Int     @default(0)
+
+  @@unique([productId, size])
 }
 
 model Order {

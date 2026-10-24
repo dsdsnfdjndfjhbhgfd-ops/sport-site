@@ -54,10 +54,24 @@ const productSchema = z.object({
   name: z.string().trim().min(2, "Введите название"),
   description: z.string().trim().min(1, "Введите описание"),
   categoryId: z.string().min(1, "Выберите категорию"),
-  sizes: z.string().trim(),
-  stock: z.coerce.number().int().min(0, "Остаток не может быть отрицательным"),
   imageUrl: z.string().trim(),
 });
+
+/** Размеры и остатки из формы: поля sizeName и sizeStock идут парами. */
+function parseSizes(formData: FormData): { size: string; stock: number }[] | string {
+  const names = formData.getAll("sizeName").map((v) => String(v).trim());
+  const stocks = formData.getAll("sizeStock").map((v) => Number(v));
+  if (!names.length) return "Добавьте хотя бы один размер";
+  const rows: { size: string; stock: number }[] = [];
+  for (let i = 0; i < names.length; i++) {
+    const stock = stocks[i];
+    if (!Number.isInteger(stock) || stock < 0) return "Остаток — целое число от 0";
+    if (names.length > 1 && !names[i]) return "Укажите название каждого размера";
+    if (rows.some((r) => r.size.toLowerCase() === names[i].toLowerCase())) return `Размер ${names[i]} указан дважды`;
+    rows.push({ size: names[i], stock });
+  }
+  return rows;
+}
 
 export async function saveProduct(
   productId: string | null,
@@ -68,6 +82,8 @@ export async function saveProduct(
   const parsed = productSchema.safeParse(Object.fromEntries(formData));
   if (!parsed.success) return { error: parsed.error.issues[0].message };
   const data = parsed.data;
+  const sizes = parseSizes(formData);
+  if (typeof sizes === "string") return { error: sizes };
 
   const price = parsePrice(String(formData.get("price") || ""));
   if (price === null || price <= 0) return { error: "Некорректная цена" };
@@ -90,23 +106,28 @@ export async function saveProduct(
     name: data.name,
     description: data.description,
     categoryId: data.categoryId,
-    sizes: data.sizes
-      .split(",")
-      .map((s) => s.trim())
-      .filter(Boolean)
-      .join(","),
-    stock: data.stock,
     price,
     oldPrice: oldPrice && oldPrice > price ? oldPrice : null,
     imageUrl,
     active: formData.get("active") === "on",
   };
 
-  if (productId) {
-    await db.product.update({ where: { id: productId }, data: fields });
-  } else {
-    await db.product.create({ data: { ...fields, slug: await uniqueSlug(data.name) } });
-  }
+  const slug = productId ? undefined : await uniqueSlug(data.name);
+  await db.$transaction(async (tx) => {
+    const product = productId
+      ? await tx.product.update({ where: { id: productId }, data: fields })
+      : await tx.product.create({ data: { ...fields, slug: slug! } });
+    await tx.productSize.deleteMany({
+      where: { productId: product.id, size: { notIn: sizes.map((s) => s.size) } },
+    });
+    for (const [position, { size, stock }] of sizes.entries()) {
+      await tx.productSize.upsert({
+        where: { productId_size: { productId: product.id, size } },
+        update: { stock, position },
+        create: { productId: product.id, size, stock, position },
+      });
+    }
+  });
   revalidatePath("/", "layout");
   redirect("/admin/products");
 }

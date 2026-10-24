@@ -12,11 +12,122 @@ interface Props {
     categoryId: string;
     price: number;
     oldPrice: number | null;
-    sizes: string;
-    stock: number;
+    sizes: { size: string; stock: number }[];
     imageUrl: string;
     active: boolean;
   };
+}
+
+const PRESETS: Record<string, string[]> = {
+  "Одежда XS–XXL": ["XS", "S", "M", "L", "XL", "XXL"],
+  "Обувь 39–45": ["39", "40", "41", "42", "43", "44", "45"],
+};
+
+/** Остаток по каждому размеру. Без размеров — одно поле «Остаток». */
+function SizesEditor({ initial }: { initial?: { size: string; stock: number }[] }) {
+  const start = initial?.length ? initial : PRESETS["Одежда XS–XXL"].slice(1, 5).map((size) => ({ size, stock: 10 }));
+  const [hasSizes, setHasSizes] = useState(!(start.length === 1 && start[0].size === ""));
+  const [rows, setRows] = useState(start.filter((r) => r.size !== ""));
+  const [single, setSingle] = useState(start.length === 1 && start[0].size === "" ? start[0].stock : 10);
+
+  const update = (i: number, patch: Partial<{ size: string; stock: number }>) =>
+    setRows((prev) => prev.map((r, j) => (j === i ? { ...r, ...patch } : r)));
+  const total = hasSizes ? rows.reduce((n, r) => n + (Number(r.stock) || 0), 0) : single;
+
+  return (
+    <div className="field sizes-editor">
+      <label>Размеры и остатки</label>
+      <label className="checkbox" style={{ marginBottom: 8 }}>
+        <input
+          type="checkbox"
+          checked={hasSizes}
+          onChange={(e) => {
+            setHasSizes(e.target.checked);
+            if (e.target.checked && !rows.length) setRows([{ size: "", stock: 0 }]);
+          }}
+        />
+        У товара есть размеры
+      </label>
+      {hasSizes ? (
+        <>
+          <table className="table sizes-table">
+            <thead>
+              <tr>
+                <th>Размер</th>
+                <th>Осталось, шт.</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r, i) => (
+                <tr key={i}>
+                  <td>
+                    <input
+                      name="sizeName"
+                      value={r.size}
+                      onChange={(e) => update(i, { size: e.target.value })}
+                      placeholder="M или 42"
+                      aria-label="Размер"
+                      required
+                    />
+                  </td>
+                  <td>
+                    <input
+                      name="sizeStock"
+                      type="number"
+                      min={0}
+                      value={r.stock}
+                      onChange={(e) => update(i, { stock: Math.max(0, Number(e.target.value) || 0) })}
+                      aria-label={`Остаток размера ${r.size}`}
+                      required
+                    />
+                  </td>
+                  <td>
+                    {rows.length > 1 && (
+                      <button type="button" className="link-btn" onClick={() => setRows(rows.filter((_, j) => j !== i))}>
+                        Убрать
+                      </button>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className="row-actions" style={{ marginTop: 10, flexWrap: "wrap" }}>
+            <button type="button" className="btn btn-sm btn-outline" onClick={() => setRows([...rows, { size: "", stock: 0 }])}>
+              + Размер
+            </button>
+            {Object.entries(PRESETS).map(([label, sizes]) => (
+              <button
+                key={label}
+                type="button"
+                className="link-btn"
+                onClick={() =>
+                  setRows(sizes.map((size) => ({ size, stock: rows.find((r) => r.size === size)?.stock ?? 0 })))
+                }
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </>
+      ) : (
+        <>
+          <input type="hidden" name="sizeName" value="" />
+          <input
+            name="sizeStock"
+            type="number"
+            min={0}
+            value={single}
+            onChange={(e) => setSingle(Math.max(0, Number(e.target.value) || 0))}
+            aria-label="Остаток, шт."
+            required
+          />
+        </>
+      )}
+      <span className="muted" style={{ fontSize: 14 }}>Всего на складе: {total} шт.</span>
+    </div>
+  );
 }
 
 export function ProductForm({ action, categories, product }: Props) {
@@ -30,24 +141,18 @@ export function ProductForm({ action, categories, product }: Props) {
         <label htmlFor="name">Название</label>
         <input id="name" name="name" defaultValue={product?.name} required />
       </div>
-      <div className="field-row">
-        <div className="field">
-          <label htmlFor="categoryId">Категория</label>
-          <select id="categoryId" name="categoryId" defaultValue={product?.categoryId ?? ""} required>
-            <option value="" disabled>
-              Выберите…
+      <div className="field">
+        <label htmlFor="categoryId">Категория</label>
+        <select id="categoryId" name="categoryId" defaultValue={product?.categoryId ?? ""} required>
+          <option value="" disabled>
+            Выберите…
+          </option>
+          {categories.map((c) => (
+            <option key={c.id} value={c.id}>
+              {c.name}
             </option>
-            {categories.map((c) => (
-              <option key={c.id} value={c.id}>
-                {c.name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="field">
-          <label htmlFor="stock">Остаток, шт.</label>
-          <input id="stock" name="stock" type="number" min={0} defaultValue={product?.stock ?? 100} required />
-        </div>
+          ))}
+        </select>
       </div>
       <div className="field-row">
         <div className="field">
@@ -65,10 +170,7 @@ export function ProductForm({ action, categories, product }: Props) {
           />
         </div>
       </div>
-      <div className="field">
-        <label htmlFor="sizes">Размеры через запятую</label>
-        <input id="sizes" name="sizes" defaultValue={product?.sizes ?? "S,M,L,XL"} placeholder="S,M,L,XL или 40,41,42" />
-      </div>
+      <SizesEditor initial={product?.sizes} />
       <div className="field">
         <label htmlFor="description">Описание</label>
         <textarea id="description" name="description" defaultValue={product?.description} required />

@@ -8,7 +8,7 @@ export default async function AdminProducts({ searchParams }: { searchParams: Pr
   const products = await db.product.findMany({
     where: q ? { name: { contains: q } } : undefined,
     orderBy: { createdAt: "desc" },
-    include: { category: true },
+    include: { category: true, sizes: { orderBy: { position: "asc" } } },
   });
 
   return (
@@ -56,7 +56,18 @@ export default async function AdminProducts({ searchParams }: { searchParams: Pr
                     </form>
                     {p.oldPrice && <div className="muted">было {formatPrice(p.oldPrice)}</div>}
                   </td>
-                  <td>{p.stock}</td>
+                  <td>
+                    <b>{p.sizes.reduce((n, s) => n + s.stock, 0)} шт.</b>
+                    {p.sizes.some((s) => s.size) && (
+                      <div className="stock-chips">
+                        {p.sizes.map((s) => (
+                          <span key={s.size} className={s.stock > 0 ? "" : "out"}>
+                            {s.size}: {s.stock}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </td>
                   <td>
                     <div className="row-actions">
                       <Link href={`/admin/products/${p.id}`} style={{ textDecoration: "underline" }}>

@@ -1,4 +1,5 @@
 import { db } from "../db";
+import { sizeKey } from "../sizes";
 import { mockProvider } from "./mock";
 import { stripeProvider } from "./stripe";
 import { yookassaProvider } from "./yookassa";
@@ -27,8 +28,8 @@ export async function applyPaymentStatus(orderId: string, status: PaymentStatus)
     if (count === 0 || status !== "PAID") return;
     const items = await tx.orderItem.findMany({ where: { orderId } });
     for (const item of items) {
-      await tx.product.update({
-        where: { id: item.productId },
+      await tx.productSize.updateMany({
+        where: { productId: item.productId, size: sizeKey(item.size) },
         data: { stock: { decrement: item.quantity } },
       });
     }
