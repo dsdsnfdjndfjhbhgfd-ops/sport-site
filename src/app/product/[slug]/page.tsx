@@ -4,6 +4,7 @@ import { db } from "@/lib/db";
 import { formatPrice } from "@/lib/money";
 import { ProductCard } from "@/components/ProductCard";
 import { AddToCart } from "./AddToCart";
+import { ProductGallery } from "./ProductGallery";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -17,7 +18,11 @@ export default async function ProductPage({ params }: Params) {
   const { slug } = await params;
   const product = await db.product.findUnique({
     where: { slug },
-    include: { category: true, sizes: { orderBy: { position: "asc" } } },
+    include: {
+      category: true,
+      sizes: { orderBy: { position: "asc" } },
+      images: { orderBy: { position: "asc" } },
+    },
   });
   if (!product || !product.active) notFound();
 
@@ -34,10 +39,10 @@ export default async function ProductPage({ params }: Params) {
         <Link href="/">Главная</Link> / <Link href={`/catalog?category=${product.category.slug}`}>{product.category.name}</Link> / {product.name}
       </div>
       <div className="product">
-        <div className="product-img">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={product.imageUrl} alt={product.name} />
-        </div>
+        <ProductGallery
+          images={product.images.length ? product.images.map((i) => i.url) : [product.imageUrl]}
+          name={product.name}
+        />
         <div className="product-info">
           <div className="card-cat">{product.category.name}</div>
           <h1>{product.name}</h1>

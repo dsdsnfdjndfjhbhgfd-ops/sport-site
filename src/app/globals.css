@@ -188,6 +188,13 @@ main { min-height: 60vh; }
 @media (max-width: 900px) { .product { grid-template-columns: 1fr; gap: 28px; } }
 .product-img { background: var(--fog); aspect-ratio: 1; border-radius: 20px; display: grid; place-items: center; overflow: hidden; }
 .product-img img { width: 100%; height: 100%; object-fit: contain; padding: 12%; }
+.gallery { min-width: 0; }
+.gallery-thumbs { display: flex; gap: 10px; margin-top: 12px; overflow-x: auto; scrollbar-width: thin; padding-bottom: 4px; }
+.gallery-thumb { flex: 0 0 auto; width: 84px; height: 84px; padding: 6px; border: 1px solid transparent; border-radius: 12px; background: var(--fog); cursor: pointer; transition: border-color .15s; }
+.gallery-thumb img { width: 100%; height: 100%; object-fit: contain; }
+.gallery-thumb:hover { border-color: var(--gray-300); }
+.gallery-thumb.active { border-color: var(--pitch); }
+@media (max-width: 640px) { .gallery-thumb { width: 64px; height: 64px; } }
 .product-info { padding-top: 12px; }
 .product-info h1 { font-size: clamp(28px, 3.2vw, 40px); margin-top: 6px; }
 .product-price { display: flex; gap: 14px; align-items: baseline; margin: 12px 0 32px; }
@@ -265,6 +272,20 @@ main { min-height: 60vh; }
 .stat { background: var(--white); padding: 22px 24px; border-radius: 16px; border: 1px solid var(--line); }
 .stat b { display: block; font-family: var(--display); font-size: 30px; font-weight: 500; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
 .stat span { font-size: 14px; color: var(--muted); }
+.photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+.photo { position: relative; aspect-ratio: 1; background: var(--fog); border-radius: 12px; overflow: hidden; }
+.photo img { width: 100%; height: 100%; object-fit: contain; padding: 10px; }
+.photo-main { position: absolute; top: 8px; left: 8px; background: var(--pitch); color: var(--white); font-size: 12px; padding: 2px 9px; border-radius: 999px; }
+.photo-actions { position: absolute; right: 6px; bottom: 6px; display: flex; gap: 4px; }
+.photo-actions button { width: 30px; height: 30px; border: 1px solid var(--line); background: var(--white); border-radius: 8px; cursor: pointer; font-size: 14px; color: var(--ink); }
+.photo-actions button:hover:not(:disabled) { border-color: var(--ink); }
+.photo-actions button:disabled { opacity: .35; cursor: default; }
+.photo-add { position: relative; aspect-ratio: 1; border: 1.5px dashed var(--gray-300); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; cursor: pointer; text-align: center; padding: 8px; color: var(--ink-soft); font-weight: 500; text-transform: none; letter-spacing: 0; font-size: 15px; }
+.photo-add:hover, .photo-add:focus-within { border-color: var(--pitch); color: var(--pitch); }
+.photo-add small { font-size: 12px; font-weight: 400; color: var(--muted); }
+.photo-add input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.photo-link { display: flex; gap: 8px; margin-top: 4px; }
+.photo-link .input { padding: 9px 14px; }
 .sizes-table { max-width: 420px; }
 .sizes-table th, .sizes-table td { padding: 6px 12px 6px 0; border: 0; }
 .sizes-table input { width: 100%; padding: 9px 12px; border: 1px solid var(--gray-300); border-radius: 8px; font: inherit; }
