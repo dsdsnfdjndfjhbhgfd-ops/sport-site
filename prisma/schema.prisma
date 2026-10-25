@@ -38,6 +38,11 @@ model Product {
   imageUrl    String
   // сезонная коллекция, например «Осень — зима 2026»; пусто — товар вне коллекций
   season      String?
+  // характеристики для фильтров каталога; пусто — не указано
+  kind        String? // тип вещи: футболка, шорты, бутсы…
+  material    String?
+  color       String?
+  gender      String? // Мужское | Женское | Унисекс | Детское
   active      Boolean     @default(true)
   categoryId  String
   category    Category    @relation(fields: [categoryId], references: [id])

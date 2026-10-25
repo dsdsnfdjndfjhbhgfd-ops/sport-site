@@ -217,6 +217,43 @@ main { min-height: 60vh; }
   .filters li a.active { border-color: var(--pitch); }
   .filters li a.active::before { display: none; }
 }
+/* Фильтры каталога */
+.facets-toggle { display: none; }
+.facet { border: 0; padding: 0; margin: 0 0 26px; min-width: 0; }
+.facet legend { font-weight: 600; font-size: 14px; color: var(--muted); padding: 0; margin-bottom: 10px; }
+.facet-options { display: flex; flex-direction: column; gap: 2px; }
+.facet-option { display: flex; align-items: center; gap: 9px; padding: 5px 0; font-size: 15px; color: var(--ink-soft); cursor: pointer; }
+.facet-option input { width: 16px; height: 16px; accent-color: var(--pitch); flex: none; }
+.facet-option small { margin-left: auto; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.facet-option:hover { color: var(--ink); }
+.facet-option.empty { opacity: .4; cursor: default; }
+.facet-sizes { flex-direction: row; flex-wrap: wrap; gap: 6px; }
+.facet-sizes .facet-option { padding: 0; }
+.facet-sizes .facet-option input { position: absolute; opacity: 0; pointer-events: none; }
+.facet-sizes .facet-option span { min-width: 44px; height: 36px; padding: 0 10px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--gray-300); border-radius: 8px; font-size: 14px; font-weight: 500; color: var(--ink); background: var(--white); transition: border-color .15s, background .15s; }
+.facet-sizes .facet-option:hover span { border-color: var(--ink); }
+.facet-sizes .facet-option input:checked + span { background: var(--pitch); border-color: var(--pitch); color: var(--white); }
+.facet-sizes .facet-option input:focus-visible + span { outline: 2px solid var(--brass); outline-offset: 2px; }
+.facet-more { font-size: 14px; margin-top: 6px; color: var(--ink-soft); }
+.facet-price { display: flex; gap: 6px; }
+.facet-price input { width: 100%; min-width: 0; padding: 8px 10px; border: 1px solid var(--gray-300); border-radius: 8px; font: inherit; font-size: 14px; }
+.facet-reset { font-size: 14px; color: var(--oxblood); }
+.filter-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: -12px 0 24px; }
+.filter-chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: var(--fog); font-size: 14px; color: var(--ink); transition: background .15s; }
+.filter-chip span { color: var(--muted); font-size: 16px; line-height: 1; }
+.filter-chip:hover { background: var(--fog-deep); }
+.nomen-search { margin-bottom: 24px; }
+.nomen-search .input { border-radius: 999px; padding: 10px 16px; }
+.nomen-traits { display: block; font-size: 13px; font-weight: 400; color: var(--muted); }
+.traits { display: grid; grid-template-columns: max-content 1fr; gap: 6px 20px; margin: 4px 0 0; font-size: 15px; }
+.traits div { display: contents; }
+.traits dt { color: var(--muted); }
+.traits dd { margin: 0; }
+@media (max-width: 800px) {
+  .facets-toggle { display: inline-flex; margin-bottom: 16px; }
+  .facets-form { display: none; }
+  .facets-form.open { display: block; padding: 18px; background: var(--fog); border-radius: 16px; margin-bottom: 20px; }
+}
 .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 28px; font-size: 14px; color: var(--muted); flex-wrap: wrap; }
 .toolbar select { border: 1px solid var(--line); padding: 8px 14px; font: inherit; background: var(--white); border-radius: 999px; color: var(--ink); }
 .empty { padding: 72px 0; text-align: center; color: var(--muted); }
@@ -303,8 +340,6 @@ main { min-height: 60vh; }
 @media (max-width: 640px) { .legal-details { grid-template-columns: 1fr; gap: 2px; } .legal-details dd { margin-bottom: 10px; } }
 
 /* Номенклатор и сезонные коллекции */
-.nomen-tools { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 28px; color: var(--muted); font-size: 14px; }
-.nomen-tools .input { max-width: 320px; border-radius: 999px; padding: 10px 16px; }
 .nomen-group { margin-bottom: 40px; }
 .nomen-group h2 { font-size: clamp(20px, 2.2vw, 24px); margin-bottom: 12px; }
 .nomen-table td:first-child { min-width: 220px; }
