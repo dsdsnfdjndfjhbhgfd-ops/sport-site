@@ -4,6 +4,11 @@ import { formatPrice } from "@/lib/money";
 
 export const metadata = { title: "Пользовательское соглашение" };
 
+const BLANK = "________________";
+const seller = Object.fromEntries(
+  Object.entries(SELLER).map(([key, value]) => [key, value.trim() || BLANK]),
+) as typeof SELLER;
+
 const edition = new Date(TERMS_VERSION).toLocaleDateString("ru-RU", { day: "numeric", month: "long", year: "numeric" });
 
 export default function TermsPage() {
@@ -20,7 +25,7 @@ export default function TermsPage() {
       <section>
         <h2>1. Общие положения</h2>
         <p>
-          1.1. Настоящее соглашение регулирует отношения между {SELLER.name} (далее — Продавец) и пользователем
+          1.1. Настоящее соглашение регулирует отношения между {seller.name} (далее — Продавец) и пользователем
           интернет-магазина {STORE_NAME} (далее — Сайт) при регистрации, использовании Сайта и оформлении заказов.
         </p>
         <p>
@@ -118,7 +123,7 @@ export default function TermsPage() {
         </p>
         <p>
           6.5. Пользователь может узнать, какие его данные обрабатываются, потребовать их исправить или удалить, а также
-          отозвать согласие, написав на {SELLER.email}. Отзыв согласия означает удаление учётной записи; данные о
+          отозвать согласие, написав на {seller.email}. Отзыв согласия означает удаление учётной записи; данные о
           совершённых покупках хранятся столько, сколько требует закон.
         </p>
       </section>
@@ -143,7 +148,7 @@ export default function TermsPage() {
           обстоятельствами непреодолимой силы.
         </p>
         <p>
-          8.3. Споры стороны решают путём переговоров. Претензию можно направить на {SELLER.email}; срок ответа —
+          8.3. Споры стороны решают путём переговоров. Претензию можно направить на {seller.email}; срок ответа —
           10 дней. Если спор не урегулирован, он рассматривается в суде по правилам законодательства РФ.
         </p>
       </section>
@@ -160,19 +165,19 @@ export default function TermsPage() {
         <h2>10. Реквизиты продавца</h2>
         <dl className="legal-details">
           <dt>Продавец</dt>
-          <dd>{SELLER.name}</dd>
+          <dd>{seller.name}</dd>
           <dt>ИНН</dt>
-          <dd>{SELLER.inn}</dd>
+          <dd>{seller.inn}</dd>
           <dt>ОГРН / ОГРНИП</dt>
-          <dd>{SELLER.ogrn}</dd>
+          <dd>{seller.ogrn}</dd>
           <dt>Адрес</dt>
-          <dd>{SELLER.address}</dd>
+          <dd>{seller.address}</dd>
           <dt>Электронная почта</dt>
           <dd>
-            <a href={`mailto:${SELLER.email}`}>{SELLER.email}</a>
+            {SELLER.email ? <a href={`mailto:${SELLER.email}`}>{SELLER.email}</a> : BLANK}
           </dd>
           <dt>Телефон</dt>
-          <dd>{SELLER.phone}</dd>
+          <dd>{seller.phone}</dd>
         </dl>
       </section>
     </div>
