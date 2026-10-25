@@ -24,6 +24,8 @@ export default async function HomePage() {
   return (
     <>
       <section className="hero">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="hero-photo" src="/hero-stadium.webp" alt="" aria-hidden="true" />
         <svg className="hero-pitch" viewBox="0 0 1200 760" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
           <g fill="none" stroke="currentColor" strokeWidth="1.5">
             <rect pathLength={1} x="40" y="40" width="1120" height="680" />
