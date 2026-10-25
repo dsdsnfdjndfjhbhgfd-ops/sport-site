@@ -135,7 +135,11 @@ function SizesEditor({ initial }: { initial?: { size: string; stock: number }[] 
 export function ProductForm({ action, categories, product }: Props) {
   const [state, formAction, pending] = useActionState(action, {});
   const [uploading, setUploading] = useState(false);
-  const images = product ? (product.images.length ? product.images.map((i) => i.url) : [product.imageUrl]) : [];
+  const images = product
+    ? product.images.length
+      ? [...new Set(product.images.map((i) => i.url))]
+      : [product.imageUrl]
+    : [];
 
   return (
     <form action={formAction} className="panel">

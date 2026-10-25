@@ -40,7 +40,7 @@ export default async function ProductPage({ params }: Params) {
       </div>
       <div className="product">
         <ProductGallery
-          images={product.images.length ? product.images.map((i) => i.url) : [product.imageUrl]}
+          images={product.images.length ? [...new Set(product.images.map((i) => i.url))] : [product.imageUrl]}
           name={product.name}
         />
         <div className="product-info">
