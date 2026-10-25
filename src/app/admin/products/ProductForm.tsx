@@ -7,6 +7,8 @@ import { PhotosEditor } from "./PhotosEditor";
 interface Props {
   action: (state: AdminFormState, data: FormData) => Promise<AdminFormState>;
   categories: { id: string; name: string }[];
+  /** уже заведённые сезоны — подсказки в поле «Сезонная коллекция» */
+  seasons: string[];
   product?: {
     name: string;
     description: string;
@@ -16,6 +18,7 @@ interface Props {
     sizes: { size: string; stock: number }[];
     imageUrl: string;
     images: { url: string }[];
+    season: string | null;
     active: boolean;
   };
 }
@@ -132,7 +135,7 @@ function SizesEditor({ initial }: { initial?: { size: string; stock: number }[] 
   );
 }
 
-export function ProductForm({ action, categories, product }: Props) {
+export function ProductForm({ action, categories, seasons, product }: Props) {
   const [state, formAction, pending] = useActionState(action, {});
   const [uploading, setUploading] = useState(false);
   const images = product
@@ -178,6 +181,21 @@ export function ProductForm({ action, categories, product }: Props) {
         </div>
       </div>
       <SizesEditor initial={product?.sizes} />
+      <div className="field">
+        <label htmlFor="season">Сезонная коллекция</label>
+        <input
+          id="season"
+          name="season"
+          list="season-options"
+          defaultValue={product?.season ?? ""}
+          placeholder="Например, Осень — зима 2026. Пусто — товар вне коллекций"
+        />
+        <datalist id="season-options">
+          {seasons.map((s) => (
+            <option key={s} value={s} />
+          ))}
+        </datalist>
+      </div>
       <div className="field">
         <label htmlFor="description">Описание</label>
         <textarea id="description" name="description" defaultValue={product?.description} required />

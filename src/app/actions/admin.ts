@@ -116,6 +116,7 @@ export async function saveProduct(
     price,
     oldPrice: oldPrice && oldPrice > price ? oldPrice : null,
     imageUrl: images[0],
+    season: String(formData.get("season") || "").trim() || null,
     active: formData.get("active") === "on",
   };
 

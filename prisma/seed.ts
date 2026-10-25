@@ -31,6 +31,14 @@ const products = [
 
 const DEMO_STOCK = [12, 7, 3, 0, 9, 1, 15, 5];
 
+// демо-коллекции: лёгкое — на тёплый сезон, куртки, брюки и обувь — на холодный
+const SEASONS: Record<string, string> = {
+  futbolki: "Весна — лето 2026",
+  "shorty-i-bryuki": "Весна — лето 2026",
+  kurtki: "Осень — зима 2026",
+  obuv: "Осень — зима 2026",
+};
+
 async function main() {
   for (const c of categories) {
     await db.category.upsert({ where: { slug: c.slug }, update: {}, create: c });
@@ -48,6 +56,7 @@ async function main() {
         price: price * 100,
         oldPrice: oldPrice ? oldPrice * 100 : null,
         imageUrl: `/products/${image}.webp`,
+        season: SEASONS[cat],
         images: { create: [{ url: `/products/${image}.webp`, position: 0 }] },
         description: `${name} — лёгкая и дышащая модель для тренировок и игр.\n\nСостав: 100% полиэстер.\nУход: машинная стирка при 30°C.`,
         // разные остатки, чтобы на витрине были и ходовые, и почти распроданные размеры
