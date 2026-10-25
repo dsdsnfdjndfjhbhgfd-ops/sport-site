@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import Link from "next/link";
 import type { FormState } from "@/app/actions/auth";
 
 interface Props {
@@ -36,6 +37,18 @@ export function AuthForm({ action, mode, next }: Props) {
           autoComplete={mode === "register" ? "new-password" : "current-password"}
         />
       </div>
+      {mode === "register" && (
+        <label className="checkbox terms-check">
+          <input type="checkbox" name="terms" required />
+          <span>
+            Я принимаю{" "}
+            <Link href="/terms" target="_blank">
+              пользовательское соглашение
+            </Link>{" "}
+            и даю согласие на обработку персональных данных
+          </span>
+        </label>
+      )}
       <button className="btn btn-block" disabled={pending}>
         {mode === "login" ? "Войти" : "Зарегистрироваться"}
       </button>

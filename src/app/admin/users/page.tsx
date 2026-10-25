@@ -18,6 +18,7 @@ export default async function AdminUsers() {
               <th>Email</th>
               <th>Заказов</th>
               <th>Регистрация</th>
+              <th>Соглашение</th>
               <th>Роль</th>
             </tr>
           </thead>
@@ -28,6 +29,11 @@ export default async function AdminUsers() {
                 <td>{u.email}</td>
                 <td>{u._count.orders}</td>
                 <td>{u.createdAt.toLocaleDateString("ru-RU")}</td>
+                <td className={u.termsAcceptedAt ? "" : "muted"}>
+                  {u.termsAcceptedAt
+                    ? `принято ${u.termsAcceptedAt.toLocaleDateString("ru-RU")} (ред. ${u.termsVersion})`
+                    : "не принималось"}
+                </td>
                 <td>
                   {u.id === me?.id ? (
                     <span className="status">Админ (вы)</span>
