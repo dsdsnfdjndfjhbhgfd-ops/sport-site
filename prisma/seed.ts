@@ -31,6 +31,24 @@ const products = [
 
 const DEMO_STOCK = [12, 7, 3, 0, 9, 1, 15, 5];
 
+// характеристики для фильтров каталога: тип вещи, материал, цвет, пол
+const TRAITS: Record<string, [kind: string, material: string, color: string, gender: string]> = {
+  "igrovaya-futbolka-champion": ["Футболка", "Полиэстер", "Бордовый", "Унисекс"],
+  "futbolka-training-pro": ["Футболка", "Полиэстер", "Чёрный", "Мужское"],
+  "futbolka-academy": ["Футболка", "Хлопок", "Тёмно-синий", "Унисекс"],
+  "futbolka-basic-white": ["Футболка", "Хлопок", "Белый", "Унисекс"],
+  "vetrovka-storm": ["Ветровка", "Нейлон", "Чёрный", "Унисекс"],
+  "olimpiyka-team": ["Олимпийка", "Полиэстер", "Тёмно-синий", "Мужское"],
+  "shorty-match": ["Шорты", "Полиэстер", "Чёрный", "Мужское"],
+  "shorty-sprint": ["Шорты", "Полиэстер", "Бордовый", "Женское"],
+  "bryuki-trenirovochnye-elite": ["Брюки", "Полиэстер", "Зелёный", "Мужское"],
+  "bryuki-jogger": ["Брюки", "Хлопок", "Серый", "Унисекс"],
+  "butsy-aguila": ["Бутсы", "Синтетическая кожа", "Белый", "Мужское"],
+  "butsy-top-flex": ["Бутсы", "Натуральная кожа", "Чёрный", "Мужское"],
+  "myach-dynamic": ["Мяч", "Полиуретан", "Зелёный", "Унисекс"],
+  "sumka-sport": ["Сумка", "Хлопковый канвас", "Зелёный", "Унисекс"],
+};
+
 // демо-коллекции: лёгкое — на тёплый сезон, куртки, брюки и обувь — на холодный
 const SEASONS: Record<string, string> = {
   futbolki: "Весна — лето 2026",
@@ -57,8 +75,12 @@ async function main() {
         oldPrice: oldPrice ? oldPrice * 100 : null,
         imageUrl: `/products/${image}.webp`,
         season: SEASONS[cat],
+        kind: TRAITS[slug][0],
+        material: TRAITS[slug][1],
+        color: TRAITS[slug][2],
+        gender: TRAITS[slug][3],
         images: { create: [{ url: `/products/${image}.webp`, position: 0 }] },
-        description: `${name} — лёгкая и дышащая модель для тренировок и игр.\n\nСостав: 100% полиэстер.\nУход: машинная стирка при 30°C.`,
+        description: `${name} — лёгкая и дышащая модель для тренировок и игр.\n\nМатериал: ${TRAITS[slug][1].toLowerCase()}.\nУход: машинная стирка при 30°C.`,
         // разные остатки, чтобы на витрине были и ходовые, и почти распроданные размеры
         sizes: {
           create: (sizes ? sizes.split(",") : [""]).map((size, position) => ({

@@ -14,7 +14,7 @@ export function SortSelect({ value }: { value: string }) {
         onChange={(e) => {
           const next = new URLSearchParams(params);
           next.set("sort", e.target.value);
-          router.push(`${pathname}?${next}`);
+          router.push(`${pathname}?${next}`, { scroll: false });
         }}
       >
         <option value="new">Сначала новые</option>

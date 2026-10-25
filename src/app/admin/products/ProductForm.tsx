@@ -7,8 +7,8 @@ import { PhotosEditor } from "./PhotosEditor";
 interface Props {
   action: (state: AdminFormState, data: FormData) => Promise<AdminFormState>;
   categories: { id: string; name: string }[];
-  /** уже заведённые сезоны — подсказки в поле «Сезонная коллекция» */
-  seasons: string[];
+  /** уже встречающиеся значения — подсказки для полей сезона и характеристик */
+  suggestions: Record<"season" | "kind" | "material" | "color", string[]>;
   product?: {
     name: string;
     description: string;
@@ -19,6 +19,10 @@ interface Props {
     imageUrl: string;
     images: { url: string }[];
     season: string | null;
+    kind: string | null;
+    material: string | null;
+    color: string | null;
+    gender: string | null;
     active: boolean;
   };
 }
@@ -135,7 +139,24 @@ function SizesEditor({ initial }: { initial?: { size: string; stock: number }[] 
   );
 }
 
-export function ProductForm({ action, categories, seasons, product }: Props) {
+const GENDERS = ["Мужское", "Женское", "Унисекс", "Детское"];
+
+/** Текстовое поле с подсказками из уже заведённых значений. */
+function SuggestField(props: { name: string; label: string; placeholder: string; value?: string | null; options: string[] }) {
+  return (
+    <div className="field">
+      <label htmlFor={props.name}>{props.label}</label>
+      <input id={props.name} name={props.name} list={`${props.name}-options`} defaultValue={props.value ?? ""} placeholder={props.placeholder} />
+      <datalist id={`${props.name}-options`}>
+        {props.options.map((o) => (
+          <option key={o} value={o} />
+        ))}
+      </datalist>
+    </div>
+  );
+}
+
+export function ProductForm({ action, categories, suggestions, product }: Props) {
   const [state, formAction, pending] = useActionState(action, {});
   const [uploading, setUploading] = useState(false);
   const images = product
@@ -181,21 +202,30 @@ export function ProductForm({ action, categories, seasons, product }: Props) {
         </div>
       </div>
       <SizesEditor initial={product?.sizes} />
-      <div className="field">
-        <label htmlFor="season">Сезонная коллекция</label>
-        <input
-          id="season"
-          name="season"
-          list="season-options"
-          defaultValue={product?.season ?? ""}
-          placeholder="Например, Осень — зима 2026. Пусто — товар вне коллекций"
-        />
-        <datalist id="season-options">
-          {seasons.map((s) => (
-            <option key={s} value={s} />
-          ))}
-        </datalist>
+      <h3 style={{ margin: "8px 0 14px" }}>Характеристики для фильтров</h3>
+      <div className="field-row">
+        <SuggestField name="kind" label="Тип вещи" placeholder="Футболка, шорты, бутсы…" value={product?.kind} options={suggestions.kind} />
+        <SuggestField name="material" label="Материал" placeholder="Полиэстер, хлопок…" value={product?.material} options={suggestions.material} />
       </div>
+      <div className="field-row">
+        <SuggestField name="color" label="Цвет" placeholder="Чёрный, белый…" value={product?.color} options={suggestions.color} />
+        <div className="field">
+          <label htmlFor="gender">Пол</label>
+          <select id="gender" name="gender" defaultValue={product?.gender ?? ""}>
+            <option value="">Не указан</option>
+            {GENDERS.map((g) => (
+              <option key={g}>{g}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+      <SuggestField
+        name="season"
+        label="Сезонная коллекция"
+        placeholder="Например, Осень — зима 2026. Пусто — товар вне коллекций"
+        value={product?.season}
+        options={suggestions.season}
+      />
       <div className="field">
         <label htmlFor="description">Описание</label>
         <textarea id="description" name="description" defaultValue={product?.description} required />
