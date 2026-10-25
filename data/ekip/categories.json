@@ -1,0 +1,398 @@
+[
+  {
+    "name": "АКСЕССУАРЫ",
+    "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%90%D0%9A%D0%A1%D0%95%D0%A1%D0%A1%D0%A3%D0%90%D0%A0%D0%AB",
+    "facet": {
+      "group": "Вид",
+      "value": "АКСЕССУАРЫ"
+    },
+    "count": 110,
+    "children": [
+      {
+        "name": "Бейсболка",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%90%D0%9A%D0%A1%D0%95%D0%A1%D0%A1%D0%A3%D0%90%D0%A0%D0%AB",
+        "facet": {
+          "group": "Тип",
+          "value": "Бейсболка"
+        },
+        "count": 4,
+        "collected": 4,
+        "children": []
+      },
+      {
+        "name": "Гетры",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%90%D0%9A%D0%A1%D0%95%D0%A1%D0%A1%D0%A3%D0%90%D0%A0%D0%AB",
+        "facet": {
+          "group": "Тип",
+          "value": "Гетры"
+        },
+        "count": 55,
+        "collected": 55,
+        "children": []
+      },
+      {
+        "name": "Гольфы",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%90%D0%9A%D0%A1%D0%95%D0%A1%D0%A1%D0%A3%D0%90%D0%A0%D0%AB",
+        "facet": {
+          "group": "Тип",
+          "value": "Гольфы"
+        },
+        "count": 5,
+        "collected": 5,
+        "children": []
+      },
+      {
+        "name": "Майка",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%90%D0%9A%D0%A1%D0%95%D0%A1%D0%A1%D0%A3%D0%90%D0%A0%D0%AB",
+        "facet": {
+          "group": "Тип",
+          "value": "Майка"
+        },
+        "count": 8,
+        "collected": 8,
+        "children": []
+      },
+      {
+        "name": "Носки",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%90%D0%9A%D0%A1%D0%95%D0%A1%D0%A1%D0%A3%D0%90%D0%A0%D0%AB",
+        "facet": {
+          "group": "Тип",
+          "value": "Носки"
+        },
+        "count": 6,
+        "collected": 6,
+        "children": []
+      },
+      {
+        "name": "Перчатки",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%90%D0%9A%D0%A1%D0%95%D0%A1%D0%A1%D0%A3%D0%90%D0%A0%D0%AB",
+        "facet": {
+          "group": "Тип",
+          "value": "Перчатки"
+        },
+        "count": 6,
+        "collected": 6,
+        "children": []
+      },
+      {
+        "name": "Разное",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%90%D0%9A%D0%A1%D0%95%D0%A1%D0%A1%D0%A3%D0%90%D0%A0%D0%AB",
+        "facet": {
+          "group": "Тип",
+          "value": "Разное"
+        },
+        "count": 1,
+        "collected": 1,
+        "children": []
+      },
+      {
+        "name": "Рюкзак",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%90%D0%9A%D0%A1%D0%95%D0%A1%D0%A1%D0%A3%D0%90%D0%A0%D0%AB",
+        "facet": {
+          "group": "Тип",
+          "value": "Рюкзак"
+        },
+        "count": 11,
+        "collected": 11,
+        "children": []
+      },
+      {
+        "name": "Сумка",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%90%D0%9A%D0%A1%D0%95%D0%A1%D0%A1%D0%A3%D0%90%D0%A0%D0%AB",
+        "facet": {
+          "group": "Тип",
+          "value": "Сумка"
+        },
+        "count": 4,
+        "collected": 4,
+        "children": []
+      },
+      {
+        "name": "Шапка",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%90%D0%9A%D0%A1%D0%95%D0%A1%D0%A1%D0%A3%D0%90%D0%A0%D0%AB",
+        "facet": {
+          "group": "Тип",
+          "value": "Шапка"
+        },
+        "count": 7,
+        "collected": 7,
+        "children": []
+      },
+      {
+        "name": "Шарф",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%90%D0%9A%D0%A1%D0%95%D0%A1%D0%A1%D0%A3%D0%90%D0%A0%D0%AB",
+        "facet": {
+          "group": "Тип",
+          "value": "Шарф"
+        },
+        "count": 3,
+        "collected": 3,
+        "children": []
+      }
+    ]
+  },
+  {
+    "name": "МЯЧИ",
+    "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9C%D0%AF%D0%A7%D0%98",
+    "facet": {
+      "group": "Вид",
+      "value": "МЯЧИ"
+    },
+    "count": 16,
+    "children": [
+      {
+        "name": "Мяч",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9C%D0%AF%D0%A7%D0%98",
+        "facet": {
+          "group": "Тип",
+          "value": "Мяч"
+        },
+        "count": 16,
+        "collected": 16,
+        "children": []
+      }
+    ]
+  },
+  {
+    "name": "ОБУВЬ",
+    "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%91%D0%A3%D0%92%D0%AC",
+    "facet": {
+      "group": "Вид",
+      "value": "ОБУВЬ"
+    },
+    "count": 120,
+    "children": [
+      {
+        "name": "Бутсы",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%91%D0%A3%D0%92%D0%AC",
+        "facet": {
+          "group": "Тип",
+          "value": "Бутсы"
+        },
+        "count": 1,
+        "collected": 1,
+        "children": []
+      },
+      {
+        "name": "Кроссовки",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%91%D0%A3%D0%92%D0%AC",
+        "facet": {
+          "group": "Тип",
+          "value": "Кроссовки"
+        },
+        "count": 58,
+        "collected": 58,
+        "children": []
+      },
+      {
+        "name": "Сандалии",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%91%D0%A3%D0%92%D0%AC",
+        "facet": {
+          "group": "Тип",
+          "value": "Сандалии"
+        },
+        "count": 2,
+        "collected": 2,
+        "children": []
+      },
+      {
+        "name": "Турфы",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%91%D0%A3%D0%92%D0%AC",
+        "facet": {
+          "group": "Тип",
+          "value": "Турфы"
+        },
+        "count": 6,
+        "collected": 6,
+        "children": []
+      },
+      {
+        "name": "Футзальная обувь",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%91%D0%A3%D0%92%D0%AC",
+        "facet": {
+          "group": "Тип",
+          "value": "Футзальная обувь"
+        },
+        "count": 53,
+        "collected": 53,
+        "children": []
+      }
+    ]
+  },
+  {
+    "name": "ОДЕЖДА",
+    "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%94%D0%95%D0%96%D0%94%D0%90",
+    "facet": {
+      "group": "Вид",
+      "value": "ОДЕЖДА"
+    },
+    "count": 481,
+    "children": [
+      {
+        "name": "Брюки",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%94%D0%95%D0%96%D0%94%D0%90",
+        "facet": {
+          "group": "Тип",
+          "value": "Брюки"
+        },
+        "count": 45,
+        "collected": 45,
+        "children": []
+      },
+      {
+        "name": "Брюки 3/4",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%94%D0%95%D0%96%D0%94%D0%90",
+        "facet": {
+          "group": "Тип",
+          "value": "Брюки 3/4"
+        },
+        "count": 1,
+        "collected": 1,
+        "children": []
+      },
+      {
+        "name": "Жилет",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%94%D0%95%D0%96%D0%94%D0%90",
+        "facet": {
+          "group": "Тип",
+          "value": "Жилет"
+        },
+        "count": 11,
+        "collected": 11,
+        "children": []
+      },
+      {
+        "name": "Комплект",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%94%D0%95%D0%96%D0%94%D0%90",
+        "facet": {
+          "group": "Тип",
+          "value": "Комплект"
+        },
+        "count": 75,
+        "collected": 75,
+        "children": []
+      },
+      {
+        "name": "Костюм",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%94%D0%95%D0%96%D0%94%D0%90",
+        "facet": {
+          "group": "Тип",
+          "value": "Костюм"
+        },
+        "count": 10,
+        "collected": 10,
+        "children": []
+      },
+      {
+        "name": "Куртка",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%94%D0%95%D0%96%D0%94%D0%90",
+        "facet": {
+          "group": "Тип",
+          "value": "Куртка"
+        },
+        "count": 68,
+        "collected": 68,
+        "children": []
+      },
+      {
+        "name": "Майка",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%94%D0%95%D0%96%D0%94%D0%90",
+        "facet": {
+          "group": "Тип",
+          "value": "Майка"
+        },
+        "count": 4,
+        "collected": 4,
+        "children": []
+      },
+      {
+        "name": "Платье",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%94%D0%95%D0%96%D0%94%D0%90",
+        "facet": {
+          "group": "Тип",
+          "value": "Платье"
+        },
+        "count": 1,
+        "collected": 1,
+        "children": []
+      },
+      {
+        "name": "Поло",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%94%D0%95%D0%96%D0%94%D0%90",
+        "facet": {
+          "group": "Тип",
+          "value": "Поло"
+        },
+        "count": 27,
+        "collected": 27,
+        "children": []
+      },
+      {
+        "name": "Рубашка",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%94%D0%95%D0%96%D0%94%D0%90",
+        "facet": {
+          "group": "Тип",
+          "value": "Рубашка"
+        },
+        "count": 13,
+        "collected": 13,
+        "children": []
+      },
+      {
+        "name": "Тайтсы",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%94%D0%95%D0%96%D0%94%D0%90",
+        "facet": {
+          "group": "Тип",
+          "value": "Тайтсы"
+        },
+        "count": 1,
+        "collected": 1,
+        "children": []
+      },
+      {
+        "name": "Тайтсы 3/4",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%94%D0%95%D0%96%D0%94%D0%90",
+        "facet": {
+          "group": "Тип",
+          "value": "Тайтсы 3/4"
+        },
+        "count": 2,
+        "collected": 2,
+        "children": []
+      },
+      {
+        "name": "Толстовка",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%94%D0%95%D0%96%D0%94%D0%90",
+        "facet": {
+          "group": "Тип",
+          "value": "Толстовка"
+        },
+        "count": 134,
+        "collected": 134,
+        "children": []
+      },
+      {
+        "name": "Футболка",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%94%D0%95%D0%96%D0%94%D0%90",
+        "facet": {
+          "group": "Тип",
+          "value": "Футболка"
+        },
+        "count": 51,
+        "collected": 51,
+        "children": []
+      },
+      {
+        "name": "Шорты",
+        "url": "https://s-ekip.ru/ords/r/akiaer/js/cat?p307_name_product_kind=%D0%9E%D0%94%D0%95%D0%96%D0%94%D0%90",
+        "facet": {
+          "group": "Тип",
+          "value": "Шорты"
+        },
+        "count": 38,
+        "collected": 38,
+        "children": []
+      }
+    ]
+  }
+]

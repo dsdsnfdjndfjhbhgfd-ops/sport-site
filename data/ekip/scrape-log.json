@@ -1,0 +1,522 @@
+{
+  "scraped_at": "2026-10-25T12:52:05.085Z",
+  "source": "https://s-ekip.ru/ords/r/akiaer/js/cat",
+  "total_listed": 727,
+  "total_products": 727,
+  "per_category": [
+    {
+      "category": "АКСЕССУАРЫ",
+      "subcategory": "Бейсболка",
+      "site_count": 4,
+      "collected": 4
+    },
+    {
+      "category": "АКСЕССУАРЫ",
+      "subcategory": "Гетры",
+      "site_count": 55,
+      "collected": 55
+    },
+    {
+      "category": "АКСЕССУАРЫ",
+      "subcategory": "Гольфы",
+      "site_count": 5,
+      "collected": 5
+    },
+    {
+      "category": "АКСЕССУАРЫ",
+      "subcategory": "Майка",
+      "site_count": 8,
+      "collected": 8
+    },
+    {
+      "category": "АКСЕССУАРЫ",
+      "subcategory": "Носки",
+      "site_count": 6,
+      "collected": 6
+    },
+    {
+      "category": "АКСЕССУАРЫ",
+      "subcategory": "Перчатки",
+      "site_count": 6,
+      "collected": 6
+    },
+    {
+      "category": "АКСЕССУАРЫ",
+      "subcategory": "Разное",
+      "site_count": 1,
+      "collected": 1
+    },
+    {
+      "category": "АКСЕССУАРЫ",
+      "subcategory": "Рюкзак",
+      "site_count": 11,
+      "collected": 11
+    },
+    {
+      "category": "АКСЕССУАРЫ",
+      "subcategory": "Сумка",
+      "site_count": 4,
+      "collected": 4
+    },
+    {
+      "category": "АКСЕССУАРЫ",
+      "subcategory": "Шапка",
+      "site_count": 7,
+      "collected": 7
+    },
+    {
+      "category": "АКСЕССУАРЫ",
+      "subcategory": "Шарф",
+      "site_count": 3,
+      "collected": 3
+    },
+    {
+      "category": "МЯЧИ",
+      "subcategory": "Мяч",
+      "site_count": 16,
+      "collected": 16
+    },
+    {
+      "category": "ОБУВЬ",
+      "subcategory": "Бутсы",
+      "site_count": 1,
+      "collected": 1
+    },
+    {
+      "category": "ОБУВЬ",
+      "subcategory": "Кроссовки",
+      "site_count": 58,
+      "collected": 58
+    },
+    {
+      "category": "ОБУВЬ",
+      "subcategory": "Сандалии",
+      "site_count": 2,
+      "collected": 2
+    },
+    {
+      "category": "ОБУВЬ",
+      "subcategory": "Турфы",
+      "site_count": 6,
+      "collected": 6
+    },
+    {
+      "category": "ОБУВЬ",
+      "subcategory": "Футзальная обувь",
+      "site_count": 53,
+      "collected": 53
+    },
+    {
+      "category": "ОДЕЖДА",
+      "subcategory": "Брюки",
+      "site_count": 45,
+      "collected": 45
+    },
+    {
+      "category": "ОДЕЖДА",
+      "subcategory": "Брюки 3/4",
+      "site_count": 1,
+      "collected": 1
+    },
+    {
+      "category": "ОДЕЖДА",
+      "subcategory": "Жилет",
+      "site_count": 11,
+      "collected": 11
+    },
+    {
+      "category": "ОДЕЖДА",
+      "subcategory": "Комплект",
+      "site_count": 75,
+      "collected": 75
+    },
+    {
+      "category": "ОДЕЖДА",
+      "subcategory": "Костюм",
+      "site_count": 10,
+      "collected": 10
+    },
+    {
+      "category": "ОДЕЖДА",
+      "subcategory": "Куртка",
+      "site_count": 68,
+      "collected": 68
+    },
+    {
+      "category": "ОДЕЖДА",
+      "subcategory": "Майка",
+      "site_count": 4,
+      "collected": 4
+    },
+    {
+      "category": "ОДЕЖДА",
+      "subcategory": "Платье",
+      "site_count": 1,
+      "collected": 1
+    },
+    {
+      "category": "ОДЕЖДА",
+      "subcategory": "Поло",
+      "site_count": 27,
+      "collected": 27
+    },
+    {
+      "category": "ОДЕЖДА",
+      "subcategory": "Рубашка",
+      "site_count": 13,
+      "collected": 13
+    },
+    {
+      "category": "ОДЕЖДА",
+      "subcategory": "Тайтсы",
+      "site_count": 1,
+      "collected": 1
+    },
+    {
+      "category": "ОДЕЖДА",
+      "subcategory": "Тайтсы 3/4",
+      "site_count": 2,
+      "collected": 2
+    },
+    {
+      "category": "ОДЕЖДА",
+      "subcategory": "Толстовка",
+      "site_count": 134,
+      "collected": 134
+    },
+    {
+      "category": "ОДЕЖДА",
+      "subcategory": "Футболка",
+      "site_count": 51,
+      "collected": 51
+    },
+    {
+      "category": "ОДЕЖДА",
+      "subcategory": "Шорты",
+      "site_count": 38,
+      "collected": 38
+    }
+  ],
+  "paging_steps": [
+    {
+      "kind": "АКСЕССУАРЫ",
+      "type": "Бейсболка",
+      "steps": [
+        4
+      ]
+    },
+    {
+      "kind": "АКСЕССУАРЫ",
+      "type": "Гетры",
+      "steps": [
+        21,
+        42,
+        55
+      ]
+    },
+    {
+      "kind": "АКСЕССУАРЫ",
+      "type": "Гольфы",
+      "steps": [
+        5
+      ]
+    },
+    {
+      "kind": "АКСЕССУАРЫ",
+      "type": "Майка",
+      "steps": [
+        8
+      ]
+    },
+    {
+      "kind": "АКСЕССУАРЫ",
+      "type": "Носки",
+      "steps": [
+        6
+      ]
+    },
+    {
+      "kind": "АКСЕССУАРЫ",
+      "type": "Перчатки",
+      "steps": [
+        6
+      ]
+    },
+    {
+      "kind": "АКСЕССУАРЫ",
+      "type": "Разное",
+      "steps": [
+        1
+      ]
+    },
+    {
+      "kind": "АКСЕССУАРЫ",
+      "type": "Рюкзак",
+      "steps": [
+        11
+      ]
+    },
+    {
+      "kind": "АКСЕССУАРЫ",
+      "type": "Сумка",
+      "steps": [
+        4
+      ]
+    },
+    {
+      "kind": "АКСЕССУАРЫ",
+      "type": "Шапка",
+      "steps": [
+        7
+      ]
+    },
+    {
+      "kind": "АКСЕССУАРЫ",
+      "type": "Шарф",
+      "steps": [
+        3
+      ]
+    },
+    {
+      "kind": "МЯЧИ",
+      "type": "Мяч",
+      "steps": [
+        16
+      ]
+    },
+    {
+      "kind": "ОБУВЬ",
+      "type": "Бутсы",
+      "steps": [
+        1
+      ]
+    },
+    {
+      "kind": "ОБУВЬ",
+      "type": "Кроссовки",
+      "steps": [
+        21,
+        42,
+        58
+      ]
+    },
+    {
+      "kind": "ОБУВЬ",
+      "type": "Сандалии",
+      "steps": [
+        2
+      ]
+    },
+    {
+      "kind": "ОБУВЬ",
+      "type": "Турфы",
+      "steps": [
+        6
+      ]
+    },
+    {
+      "kind": "ОБУВЬ",
+      "type": "Футзальная обувь",
+      "steps": [
+        21,
+        42,
+        53
+      ]
+    },
+    {
+      "kind": "ОДЕЖДА",
+      "type": "Брюки",
+      "steps": [
+        45
+      ]
+    },
+    {
+      "kind": "ОДЕЖДА",
+      "type": "Брюки 3/4",
+      "steps": [
+        1
+      ]
+    },
+    {
+      "kind": "ОДЕЖДА",
+      "type": "Жилет",
+      "steps": [
+        11
+      ]
+    },
+    {
+      "kind": "ОДЕЖДА",
+      "type": "Комплект",
+      "steps": [
+        21,
+        42,
+        63,
+        75
+      ]
+    },
+    {
+      "kind": "ОДЕЖДА",
+      "type": "Костюм",
+      "steps": [
+        10
+      ]
+    },
+    {
+      "kind": "ОДЕЖДА",
+      "type": "Куртка",
+      "steps": [
+        42,
+        63,
+        68
+      ]
+    },
+    {
+      "kind": "ОДЕЖДА",
+      "type": "Майка",
+      "steps": [
+        4
+      ]
+    },
+    {
+      "kind": "ОДЕЖДА",
+      "type": "Платье",
+      "steps": [
+        1
+      ]
+    },
+    {
+      "kind": "ОДЕЖДА",
+      "type": "Поло",
+      "steps": [
+        21,
+        27
+      ]
+    },
+    {
+      "kind": "ОДЕЖДА",
+      "type": "Рубашка",
+      "steps": [
+        13
+      ]
+    },
+    {
+      "kind": "ОДЕЖДА",
+      "type": "Тайтсы",
+      "steps": [
+        1
+      ]
+    },
+    {
+      "kind": "ОДЕЖДА",
+      "type": "Тайтсы 3/4",
+      "steps": [
+        2
+      ]
+    },
+    {
+      "kind": "ОДЕЖДА",
+      "type": "Толстовка",
+      "steps": [
+        21,
+        42,
+        63,
+        84,
+        100,
+        126,
+        134
+      ]
+    },
+    {
+      "kind": "ОДЕЖДА",
+      "type": "Футболка",
+      "steps": [
+        51
+      ]
+    },
+    {
+      "kind": "ОДЕЖДА",
+      "type": "Шорты",
+      "steps": [
+        38
+      ]
+    }
+  ],
+  "card_samples": [
+    {
+      "id": "8C7CD82A781F11F083223CECEF90151D",
+      "name": "KELME Бейсболка ADENCA 8501MZ5054.432",
+      "color": "Синий",
+      "genderIcons": [
+        "fa-user-man",
+        "fa-user-woman"
+      ],
+      "prices": [
+        "1 399 ₽"
+      ],
+      "struck": [],
+      "badge": null,
+      "secondaryHtmlLen": 123
+    },
+    {
+      "id": "6FB352BB781F11F083223CECEF90151D",
+      "name": "KELME Бейсболка ADENCA 8501MZ5054.000",
+      "color": "Черный",
+      "genderIcons": [
+        "fa-user-man",
+        "fa-user-woman"
+      ],
+      "prices": [
+        "1 399 ₽"
+      ],
+      "struck": [],
+      "badge": null,
+      "secondaryHtmlLen": 123
+    },
+    {
+      "id": "5B268581781F11F083223CECEF90151D",
+      "name": "KELME Бейсболка ADENCA 8501MZ5054.100",
+      "color": "Белый",
+      "genderIcons": [
+        "fa-user-man",
+        "fa-user-woman"
+      ],
+      "prices": [
+        "1 399 ₽"
+      ],
+      "struck": [],
+      "badge": null,
+      "secondaryHtmlLen": 123
+    },
+    {
+      "id": "A19402CCD27E11EF83223CECEF90151D",
+      "name": "KELME Бейсболка TOMARES 8101MZ5007.003 СвСк",
+      "color": "Черный/Белый",
+      "genderIcons": [
+        "fa-user-man",
+        "fa-user-woman"
+      ],
+      "prices": [
+        "1 599 ₽"
+      ],
+      "struck": [],
+      "badge": null,
+      "secondaryHtmlLen": 123
+    },
+    {
+      "id": "1D80F2248A3411F083233CECEF90151D",
+      "name": "CENTURION Гетры спортивные OPTIMAL 40001.06(013) СвСк",
+      "color": "Красный",
+      "genderIcons": [
+        "fa-user-man",
+        "fa-user-woman"
+      ],
+      "prices": [
+        "699 ₽"
+      ],
+      "struck": [],
+      "badge": null,
+      "secondaryHtmlLen": 123
+    }
+  ],
+  "failures": []
+}

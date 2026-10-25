@@ -11,6 +11,8 @@ const { chromium } = require('playwright');
 
 const BASE = 'https://s-ekip.ru';
 const CAT_URL = `${BASE}/ords/r/akiaer/js/cat`;
+// фильтр «Вид» передаётся параметром URL (проверено); «Тип» через URL не применяется
+const kindUrl = (kind) => `${CAT_URL}?p307_name_product_kind=${encodeURIComponent(kind)}`;
 const productUrl = (id) => `${CAT_URL}?request=show&P307_ID_PRODUCT_VIEW=${id}`;
 const OUT = path.resolve('data/ekip');
 const SHOTS = path.join(OUT, 'screenshots');
@@ -202,7 +204,7 @@ async function main() {
     log('Вид', kind.value);
     await toggleFacet(page, 'Вид', kind.value);
     const types = ((await readFacets(page)).find((f) => f.label === 'Тип')?.options || []).filter((o) => o.count);
-    const node = { name: kind.label, url: CAT_URL, facet: { group: 'Вид', value: kind.value }, count: kind.count, children: [] };
+    const node = { name: kind.label, url: kindUrl(kind.value), facet: { group: 'Вид', value: kind.value }, count: kind.count, children: [] };
     let firstType = true;
     for (const type of TEST ? types.slice(0, 2) : types) {
       try {
@@ -212,7 +214,7 @@ async function main() {
         if (firstType && kind === kinds[0]) await page.screenshot({ path: path.join(SHOTS, '02-category.png') });
         firstType = false;
         for (const c of cards) if (!listed.has(c.id)) listed.set(c.id, { category: kind.label, subcategory: type.label, card: c });
-        node.children.push({ name: type.label, url: CAT_URL, facet: { group: 'Тип', value: type.value }, count: type.count, collected: cards.length, children: [] });
+        node.children.push({ name: type.label, url: kindUrl(kind.value), facet: { group: 'Тип', value: type.value }, count: type.count, collected: cards.length, children: [] });
         perCategory.push({ category: kind.label, subcategory: type.label, site_count: type.count, collected: cards.length });
         log(`  ${type.label}: ${cards.length}/${type.count}`);
         if (cards.length !== type.count) failures.push({ where: `${kind.label}/${type.label}`, error: `собрано ${cards.length} из ${type.count}` });
@@ -258,7 +260,8 @@ async function main() {
       warehouses = rest.head.slice(1);
       sizes = rest.rows.map(([size, ...qty]) => {
         const raw = qty.join(' / ');
-        const nums = qty.map((q) => (/^\d+$/.test(q) ? Number(q) : null));
+        // пустая ячейка склада = 0; «>500» — точного числа нет
+        const nums = qty.map((q) => (q === '' ? 0 : /^\d+$/.test(q) ? Number(q) : null));
         const exact = nums.every((n) => n != null);
         return {
           size,

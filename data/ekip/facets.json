@@ -1,0 +1,2711 @@
+[
+  {
+    "label": "Услуги",
+    "options": [
+      {
+        "value": "Нанесение",
+        "label": "Нанесение",
+        "count": 337,
+        "checked": false
+      }
+    ],
+    "selects": null,
+    "range": null
+  },
+  {
+    "label": "Склады",
+    "options": [
+      {
+        "value": "ОСНОВНОЙ",
+        "label": "ОСНОВНОЙ",
+        "count": 460,
+        "checked": false
+      },
+      {
+        "value": "РАСПРОДАЖА",
+        "label": "РАСПРОДАЖА",
+        "count": 268,
+        "checked": false
+      }
+    ],
+    "selects": null,
+    "range": null
+  },
+  {
+    "label": "По отмеченным",
+    "options": [
+      {
+        "value": "1",
+        "label": "Только одинаковые",
+        "count": 0,
+        "checked": false
+      }
+    ],
+    "selects": null,
+    "range": null
+  },
+  {
+    "label": "Бренд",
+    "options": [
+      {
+        "value": "ALPHAKEEPERS",
+        "label": "ALPHAKEEPERS",
+        "count": 14,
+        "checked": false
+      },
+      {
+        "value": "CENTURION",
+        "label": "CENTURION",
+        "count": 154,
+        "checked": false
+      },
+      {
+        "value": "JOMA",
+        "label": "JOMA",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "KELME",
+        "label": "KELME",
+        "count": 556,
+        "checked": false
+      }
+    ],
+    "selects": null,
+    "range": null
+  },
+  {
+    "label": "Вид",
+    "options": [
+      {
+        "value": "СУБЛИМАЦИЯ",
+        "label": "СУБЛИМАЦИЯ",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "123",
+        "label": "123",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "ALPHAKEEPERS",
+        "label": "ALPHAKEEPERS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "KV+",
+        "label": "KV+",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "КОМПЛЕКТЫ",
+        "label": "КОМПЛЕКТЫ",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "Образцы",
+        "label": "Образцы",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "АРХИВ",
+        "label": "АРХИВ",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "JOMA",
+        "label": "JOMA",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "KELME",
+        "label": "KELME",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "МАРКЕТ",
+        "label": "МАРКЕТ",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "АКСЕССУАРЫ",
+        "label": "АКСЕССУАРЫ",
+        "count": 110,
+        "checked": false
+      },
+      {
+        "value": "МЯЧИ",
+        "label": "МЯЧИ",
+        "count": 16,
+        "checked": false
+      },
+      {
+        "value": "ОБУВЬ",
+        "label": "ОБУВЬ",
+        "count": 120,
+        "checked": false
+      },
+      {
+        "value": "ОДЕЖДА",
+        "label": "ОДЕЖДА",
+        "count": 481,
+        "checked": false
+      },
+      {
+        "value": "ПЕРЧАТКИ",
+        "label": "ПЕРЧАТКИ",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "НАНЕСЕНИЕ",
+        "label": "НАНЕСЕНИЕ",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "РАЗНОЕ",
+        "label": "РАЗНОЕ",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "ПЕРЧАТКИ ВРАТАРСКИЕ",
+        "label": "ПЕРЧАТКИ ВРАТАРСКИЕ",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "РАЗРАБОТКА",
+        "label": "РАЗРАБОТКА",
+        "count": 0,
+        "checked": false
+      }
+    ],
+    "selects": null,
+    "range": null
+  },
+  {
+    "label": "Тип",
+    "options": [
+      {
+        "value": "Бейсболка",
+        "label": "Бейсболка",
+        "count": 4,
+        "checked": false
+      },
+      {
+        "value": "Брюки",
+        "label": "Брюки",
+        "count": 45,
+        "checked": false
+      },
+      {
+        "value": "Брюки 3/4",
+        "label": "Брюки 3/4",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Бутсы",
+        "label": "Бутсы",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Гетры",
+        "label": "Гетры",
+        "count": 55,
+        "checked": false
+      },
+      {
+        "value": "Гольфы",
+        "label": "Гольфы",
+        "count": 5,
+        "checked": false
+      },
+      {
+        "value": "Жилет",
+        "label": "Жилет",
+        "count": 11,
+        "checked": false
+      },
+      {
+        "value": "Комплект",
+        "label": "Комплект",
+        "count": 75,
+        "checked": false
+      },
+      {
+        "value": "Костюм",
+        "label": "Костюм",
+        "count": 10,
+        "checked": false
+      },
+      {
+        "value": "Кроссовки",
+        "label": "Кроссовки",
+        "count": 58,
+        "checked": false
+      },
+      {
+        "value": "Куртка",
+        "label": "Куртка",
+        "count": 68,
+        "checked": false
+      },
+      {
+        "value": "Майка",
+        "label": "Майка",
+        "count": 12,
+        "checked": false
+      },
+      {
+        "value": "Мяч",
+        "label": "Мяч",
+        "count": 16,
+        "checked": false
+      },
+      {
+        "value": "Носки",
+        "label": "Носки",
+        "count": 6,
+        "checked": false
+      },
+      {
+        "value": "Перчатки",
+        "label": "Перчатки",
+        "count": 6,
+        "checked": false
+      },
+      {
+        "value": "Платье",
+        "label": "Платье",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Поло",
+        "label": "Поло",
+        "count": 27,
+        "checked": false
+      },
+      {
+        "value": "Разное",
+        "label": "Разное",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Рубашка",
+        "label": "Рубашка",
+        "count": 13,
+        "checked": false
+      },
+      {
+        "value": "Рюкзак",
+        "label": "Рюкзак",
+        "count": 11,
+        "checked": false
+      },
+      {
+        "value": "Сандалии",
+        "label": "Сандалии",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Сумка",
+        "label": "Сумка",
+        "count": 4,
+        "checked": false
+      },
+      {
+        "value": "Тайтсы",
+        "label": "Тайтсы",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Тайтсы 3/4",
+        "label": "Тайтсы 3/4",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Толстовка",
+        "label": "Толстовка",
+        "count": 134,
+        "checked": false
+      },
+      {
+        "value": "Турфы",
+        "label": "Турфы",
+        "count": 6,
+        "checked": false
+      },
+      {
+        "value": "Футболка",
+        "label": "Футболка",
+        "count": 51,
+        "checked": false
+      },
+      {
+        "value": "Футзальная обувь",
+        "label": "Футзальная обувь",
+        "count": 53,
+        "checked": false
+      },
+      {
+        "value": "Шапка",
+        "label": "Шапка",
+        "count": 7,
+        "checked": false
+      },
+      {
+        "value": "Шарф",
+        "label": "Шарф",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "Шорты",
+        "label": "Шорты",
+        "count": 38,
+        "checked": false
+      }
+    ],
+    "selects": null,
+    "range": null
+  },
+  {
+    "label": "Модель",
+    "options": [],
+    "selects": [
+      "Не указана (31)",
+      "ACCORD (3)",
+      "ACTUBA (2)",
+      "ADENCA (3)",
+      "AGRESIVO (1)",
+      "ALICANTE (1)",
+      "ALL IN (4)",
+      "ALMO (2)",
+      "ANDALUCIA (2)",
+      "APARRAL (1)",
+      "APOGEO (9)",
+      "AROS (3)",
+      "ARUGUN (2)",
+      "ASPECTO (1)",
+      "ATOMICO (8)",
+      "BADALONA (12)",
+      "BALEN (2)",
+      "BARBA (3)",
+      "BARCELONA (3)",
+      "BARRO (1)",
+      "BARROC (18)",
+      "BASAR (1)",
+      "BASIC (8)",
+      "BAYAS (4)",
+      "BEAT (5)",
+      "BELELA (2)",
+      "BIABLO (1)",
+      "BLAZING (2)",
+      "BRASSAN (1)",
+      "CALVIA (2)",
+      "CAMAS (1)",
+      "CAMPELLO (2)",
+      "CAMPEZO (1)",
+      "CAMPUS (1)",
+      "CARAGUETA (1)",
+      "CASUAL SHOES (2)",
+      "CHIDA (1)",
+      "COLLEGE (3)",
+      "COMETA (3)",
+      "COSTAS (5)",
+      "DALAH (1)",
+      "DALU (3)",
+      "DELMARK (2)",
+      "DELU (3)",
+      "DESTACADO (1)",
+      "DINAMO (1)",
+      "DISCO (1)",
+      "DOHA (5)",
+      "DOMINION (5)",
+      "DUSI (3)",
+      "ELEGANTE (5)",
+      "ELEN (2)",
+      "ELITE (2)",
+      "ELITE T5 (1)",
+      "ELITE 80 (3)",
+      "ENCARNADO (1)",
+      "ESTREM (1)",
+      "Expert RF Comfort 9 (1)",
+      "FABERO (2)",
+      "FAVERT (1)",
+      "FERRONES (1)",
+      "FINAL TURF (3)",
+      "FLAME II (1)",
+      "FLORESTA (1)",
+      "FLUFF (1)",
+      "FONELAS (4)",
+      "FORTUNA (1)",
+      "FRAGA (1)",
+      "FRIAC (1)",
+      "GALDAR (1)",
+      "GAME PRO II T5 (1)",
+      "GARRO (1)",
+      "GIGANTE (1)",
+      "GLOBAL (5)",
+      "GOLEIRO INDOOR (5)",
+      "GOLEIRO INDOOR ELASTIC (1)",
+      "GOLEIRO TURF (1)",
+      "GOLUSIA (24)",
+      "GONRA (2)",
+      "GONRAN (1)",
+      "GRAN CANARIA (1)",
+      "GRANCAS (1)",
+      "GRILLO (1)",
+      "GRUNUELO (5)",
+      "HECHO (3)",
+      "HERCULES (8)",
+      "HERMOSO (1)",
+      "HERO ELASTIC (1)",
+      "HYBRID-SALA T4 (1)",
+      "ICEBERG III (1)",
+      "IGNITE (1)",
+      "INDOOR COPA (4)",
+      "INDOOR COPA ELASTIC (2)",
+      "KADIS (1)",
+      "KANARUS (1)",
+      "KELME (1)",
+      "K-ROOKIE (3)",
+      "K-ROOKIE ELASTIC (2)",
+      "K-10 (1)",
+      "LACHA (1)",
+      "LANCA (1)",
+      "LASTER (2)",
+      "LEAGUE PRO II (2)",
+      "LERO (1)",
+      "LIGA (5)",
+      "LINE (1)",
+      "LULA (2)",
+      "MADRID (6)",
+      "MARKA (1)",
+      "MIAMI (3)",
+      "MIXTA (5)",
+      "MORADO (4)",
+      "MORAT (3)",
+      "MOXAK (2)",
+      "NABIVIA (1)",
+      "NANSI (1)",
+      "NASELY (2)",
+      "NEW LINCE (17)",
+      "NEYLA (2)",
+      "NOLY (2)",
+      "NOMAD (2)",
+      "NOVELDA (10)",
+      "OPTIMAL (128)",
+      "OPTIMAL PLUS (4)",
+      "ORDUNA (1)",
+      "ORIGINAL NEO ELASTIC (1)",
+      "PASQUAL (2)",
+      "PRACTICE (3)",
+      "PRECISION (11)",
+      "PRECISION ELASTIC (9)",
+      "PRECISION TURF (2)",
+      "PREMIUM (4)",
+      "PRIMAVERA (1)",
+      "PRO Futsal Game II (1)",
+      "PRO Roll Comfort LITE (1)",
+      "Pro Roll Comfort 9 (1)",
+      "PRO Roll Quartz 9 (1)",
+      "PRO STAR (1)",
+      "PROANO (5)",
+      "PUERTO REAL (3)",
+      "PUZOL (1)",
+      "RAGOZ (1)",
+      "REACTIVO (5)",
+      "RECBO (1)",
+      "REFEREE (3)",
+      "REGOA (1)",
+      "REGOLFO (1)",
+      "RENALES (1)",
+      "RETROBASKET 2.0 (4)",
+      "RITMO (1)",
+      "RIYGO (1)",
+      "ROAD (3)",
+      "ROADE (2)",
+      "Roll Star neon yellow (1)",
+      "RONDA (1)",
+      "RROYS (2)",
+      "RUBI (1)",
+      "RUBRLS (1)",
+      "SAGARO (1)",
+      "SATELITE (1)",
+      "SCALPEL (2)",
+      "SCOLA (3)",
+      "SEBATA (1)",
+      "SEGOVIA (16)",
+      "SELECTA FG / MG (1)",
+      "SETE (1)",
+      "SEYTY (3)",
+      "SIAGA (1)",
+      "SIENRA (4)",
+      "SILICON (1)",
+      "SLIPPERS (1)",
+      "SORRENTO (3)",
+      "SPECTRUM (4)",
+      "STEALTH FIFA QUALITY PRO (1)",
+      "STILETTO (5)",
+      "TAJO (1)",
+      "TALANTE (2)",
+      "TALIY (1)",
+      "TANARRO (1)",
+      "TAVRIY (2)",
+      "TERAVA (1)",
+      "THUNDERSTORM (3)",
+      "TIELVE (8)",
+      "TISCAR (7)",
+      "TOMARES (1)",
+      "TORNEO (1)",
+      "TRAIL TRAVEL / TRACK (2)",
+      "TRENO (1)",
+      "TRONCEDA (2)",
+      "TRUENO ELASTIC (2)",
+      "TRUENO LACE (4)",
+      "TUNDRA (3)",
+      "UBALA (2)",
+      "ULTRA T7 (1)",
+      "UNION (13)",
+      "VALENCIA (4)",
+      "VARSO (2)",
+      "VECTOR (9)",
+      "VEDRO (1)",
+      "VENDRELL (1)",
+      "VICTORY (2)",
+      "VICTORY CHIC (1)",
+      "WATFORD (2)",
+      "WINDPROOF (9)",
+      "YRNY (1)",
+      "6345XX1349 (3)",
+      "66832200-000 (1)"
+    ],
+    "range": null
+  },
+  {
+    "label": "Спорт",
+    "options": [
+      {
+        "value": "$$NULL$$",
+        "label": "Не указан",
+        "count": 39,
+        "checked": false
+      },
+      {
+        "value": "PADEL",
+        "label": "Падел-теннис",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "ICE HOCKEY",
+        "label": "Хоккей с шайбой",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "TRAIL",
+        "label": "Трейл",
+        "count": 87,
+        "checked": false
+      },
+      {
+        "value": "FOOTBALL",
+        "label": "Футбол",
+        "count": 274,
+        "checked": false
+      },
+      {
+        "value": "CASUAL",
+        "label": "Повседневный",
+        "count": 367,
+        "checked": false
+      },
+      {
+        "value": "BASKETBALL",
+        "label": "Баскетбол",
+        "count": 8,
+        "checked": false
+      },
+      {
+        "value": "RUNNING",
+        "label": "Бег",
+        "count": 333,
+        "checked": false
+      },
+      {
+        "value": "FITNESS",
+        "label": "Фитнес",
+        "count": 165,
+        "checked": false
+      },
+      {
+        "value": "TENNIS",
+        "label": "Теннис",
+        "count": 26,
+        "checked": false
+      },
+      {
+        "value": "HANDBALL",
+        "label": "Гандбол",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "VOLLEYBALL",
+        "label": "Волейбол",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "TRACKING",
+        "label": "Треккинг",
+        "count": 7,
+        "checked": false
+      },
+      {
+        "value": "FUTSAL",
+        "label": "Мини-футбол",
+        "count": 266,
+        "checked": false
+      },
+      {
+        "value": "rugby",
+        "label": "Регби",
+        "count": 54,
+        "checked": false
+      },
+      {
+        "value": "BEACH SOCCER",
+        "label": "Пляжный футбол",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "GYM",
+        "label": "Тренажерный зал",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "BANDY",
+        "label": "Хоккей с мячом (бенди)",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "HOCKEY",
+        "label": "Хоккей на траве",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "FLOORBALL",
+        "label": "Флорбол",
+        "count": 0,
+        "checked": false
+      }
+    ],
+    "selects": null,
+    "range": null
+  },
+  {
+    "label": "Пол",
+    "options": [
+      {
+        "value": "$$NULL$$",
+        "label": "Не указан",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "МУЖСКОЙ",
+        "label": "МУЖСКОЙ",
+        "count": 549,
+        "checked": false
+      },
+      {
+        "value": "УНИВЕРСАЛЬНЫЙ (УНИСЕКС)",
+        "label": "УНИВЕРСАЛЬНЫЙ (УНИСЕКС)",
+        "count": 121,
+        "checked": false
+      },
+      {
+        "value": "undefined",
+        "label": "",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "БЕЗ УКАЗАНИЯ ПОЛА",
+        "label": "БЕЗ УКАЗАНИЯ ПОЛА",
+        "count": 28,
+        "checked": false
+      },
+      {
+        "value": "ЖЕНСКИЙ",
+        "label": "ЖЕНСКИЙ",
+        "count": 29,
+        "checked": false
+      }
+    ],
+    "selects": null,
+    "range": null
+  },
+  {
+    "label": "Размеры в наличии",
+    "options": [
+      {
+        "value": "JR",
+        "label": "JR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "L",
+        "label": "L",
+        "count": 260,
+        "checked": false
+      },
+      {
+        "value": "L#XL",
+        "label": "L#XL",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "L-XL",
+        "label": "L-XL",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "L(40-46)",
+        "label": "L(40-46)",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "L/40-46",
+        "label": "L/40-46",
+        "count": 39,
+        "checked": false
+      },
+      {
+        "value": "L(41-43)",
+        "label": "L(41-43)",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "L/42-44",
+        "label": "L/42-44",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "L(43-46)",
+        "label": "L(43-46)",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "L/43-46",
+        "label": "L/43-46",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "M",
+        "label": "M",
+        "count": 290,
+        "checked": false
+      },
+      {
+        "value": "M#L",
+        "label": "M#L",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "M(34-39)",
+        "label": "M(34-39)",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "M/34-39",
+        "label": "M/34-39",
+        "count": 39,
+        "checked": false
+      },
+      {
+        "value": "M(35-37)",
+        "label": "M(35-37)",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "M(38-40)",
+        "label": "M(38-40)",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "M/39-41",
+        "label": "M/39-41",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "M(39-42)",
+        "label": "M(39-42)",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "M/39-42",
+        "label": "M/39-42",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "ONESIZE",
+        "label": "ONESIZE",
+        "count": 29,
+        "checked": false
+      },
+      {
+        "value": "S",
+        "label": "S",
+        "count": 294,
+        "checked": false
+      },
+      {
+        "value": "S#M",
+        "label": "S#M",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "S-M",
+        "label": "S-M",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "SR",
+        "label": "SR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "S(28-30)",
+        "label": "S(28-30)",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "S(28-33)",
+        "label": "S(28-33)",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "S/28-33",
+        "label": "S/28-33",
+        "count": 37,
+        "checked": false
+      },
+      {
+        "value": "S(31-34)",
+        "label": "S(31-34)",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "S(35-38)",
+        "label": "S(35-38)",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "S/35-38",
+        "label": "S/35-38",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "S/36-38",
+        "label": "S/36-38",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "XL",
+        "label": "XL",
+        "count": 265,
+        "checked": false
+      },
+      {
+        "value": "XL#XL/45-48",
+        "label": "XL#XL/45-48",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "XL#XXL",
+        "label": "XL#XXL",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "XL(44-46)",
+        "label": "XL(44-46)",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "XL/45-48",
+        "label": "XL/45-48",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "XL(47-50)",
+        "label": "XL(47-50)",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "XL/47-50",
+        "label": "XL/47-50",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "XS",
+        "label": "XS",
+        "count": 218,
+        "checked": false
+      },
+      {
+        "value": "XS#S",
+        "label": "XS#S",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "XS/31-34",
+        "label": "XS/31-34",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "XS/32-36",
+        "label": "XS/32-36",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "XXL",
+        "label": "XXL",
+        "count": 250,
+        "checked": false
+      },
+      {
+        "value": "XXL#XXXL",
+        "label": "XXL#XXXL",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "XXS",
+        "label": "XXS",
+        "count": 125,
+        "checked": false
+      },
+      {
+        "value": "XXS#XS",
+        "label": "XXS#XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "XXS-XS",
+        "label": "XXS-XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "XXXL",
+        "label": "XXXL",
+        "count": 105,
+        "checked": false
+      },
+      {
+        "value": "XXXL#4XL",
+        "label": "XXXL#4XL",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "YXS",
+        "label": "YXS",
+        "count": 6,
+        "checked": false
+      },
+      {
+        "value": "комплект",
+        "label": "комплект",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "10",
+        "label": "10",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "10 лет",
+        "label": "10 лет",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "10 лет#3XS",
+        "label": "10 лет#3XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "10 лет#4XS#3XS",
+        "label": "10 лет#4XS#3XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "10,5",
+        "label": "10,5",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "10.5",
+        "label": "10.5",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "11",
+        "label": "11",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "12",
+        "label": "12",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "12 лет",
+        "label": "12 лет",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "12 лет#XXS",
+        "label": "12 лет#XXS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "12 лет#2XS",
+        "label": "12 лет#2XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "14 лет",
+        "label": "14 лет",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "14 лет#XS",
+        "label": "14 лет#XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "16 лет",
+        "label": "16 лет",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "2 года#8XS",
+        "label": "2 года#8XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "2 года#8XS#7XS",
+        "label": "2 года#8XS#7XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "2XL",
+        "label": "2XL",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "2XL#3XL",
+        "label": "2XL#3XL",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "2XS",
+        "label": "2XS",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "22 EUR",
+        "label": "22 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "23 EUR",
+        "label": "23 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "23.5 EUR",
+        "label": "23.5 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "24 EUR",
+        "label": "24 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "25 EUR",
+        "label": "25 EUR",
+        "count": 4,
+        "checked": false
+      },
+      {
+        "value": "26 EUR",
+        "label": "26 EUR",
+        "count": 4,
+        "checked": false
+      },
+      {
+        "value": "26.5 EUR",
+        "label": "26.5 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "27 EUR",
+        "label": "27 EUR",
+        "count": 9,
+        "checked": false
+      },
+      {
+        "value": "27.5 EUR",
+        "label": "27.5 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "28 EUR",
+        "label": "28 EUR",
+        "count": 9,
+        "checked": false
+      },
+      {
+        "value": "29 EUR",
+        "label": "29 EUR",
+        "count": 12,
+        "checked": false
+      },
+      {
+        "value": "3",
+        "label": "3",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "3 года#7XS",
+        "label": "3 года#7XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "3XL",
+        "label": "3XL",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "3XS",
+        "label": "3XS",
+        "count": 123,
+        "checked": false
+      },
+      {
+        "value": "30 EUR",
+        "label": "30 EUR",
+        "count": 7,
+        "checked": false
+      },
+      {
+        "value": "30.5 EUR",
+        "label": "30.5 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "31 EUR",
+        "label": "31 EUR",
+        "count": 12,
+        "checked": false
+      },
+      {
+        "value": "31.5 EUR",
+        "label": "31.5 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "32 EUR",
+        "label": "32 EUR",
+        "count": 10,
+        "checked": false
+      },
+      {
+        "value": "32 EUR;",
+        "label": "32 EUR;",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "32-36",
+        "label": "32-36",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "32.5 EUR",
+        "label": "32.5 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "33 EUR",
+        "label": "33 EUR",
+        "count": 8,
+        "checked": false
+      },
+      {
+        "value": "33.5 EUR",
+        "label": "33.5 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "34 EUR",
+        "label": "34 EUR",
+        "count": 7,
+        "checked": false
+      },
+      {
+        "value": "34.5 EUR",
+        "label": "34.5 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "35 EUR",
+        "label": "35 EUR",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "35 EUR;",
+        "label": "35 EUR;",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "35.5 EUR",
+        "label": "35.5 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "36 EUR",
+        "label": "36 EUR",
+        "count": 6,
+        "checked": false
+      },
+      {
+        "value": "36.5 EUR",
+        "label": "36.5 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "37 EUR",
+        "label": "37 EUR",
+        "count": 7,
+        "checked": false
+      },
+      {
+        "value": "37.5 EUR",
+        "label": "37.5 EUR",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "38 EUR",
+        "label": "38 EUR",
+        "count": 16,
+        "checked": false
+      },
+      {
+        "value": "38.5 EUR",
+        "label": "38.5 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "39 EUR",
+        "label": "39 EUR",
+        "count": 17,
+        "checked": false
+      },
+      {
+        "value": "39 EUR;",
+        "label": "39 EUR;",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "39-44",
+        "label": "39-44",
+        "count": 8,
+        "checked": false
+      },
+      {
+        "value": "39.5 EUR",
+        "label": "39.5 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "4",
+        "label": "4",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "4 года#6 лет",
+        "label": "4 года#6 лет",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "4 года#6 лет#6XS#5XS",
+        "label": "4 года#6 лет#6XS#5XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "4 года#6XS",
+        "label": "4 года#6XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "4XL",
+        "label": "4XL",
+        "count": 23,
+        "checked": false
+      },
+      {
+        "value": "4XL#5XL",
+        "label": "4XL#5XL",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "4XL-5XL",
+        "label": "4XL-5XL",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "4XS",
+        "label": "4XS",
+        "count": 122,
+        "checked": false
+      },
+      {
+        "value": "4XS#3XS",
+        "label": "4XS#3XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "40 EUR",
+        "label": "40 EUR",
+        "count": 47,
+        "checked": false
+      },
+      {
+        "value": "40.5 EUR",
+        "label": "40.5 EUR",
+        "count": 22,
+        "checked": false
+      },
+      {
+        "value": "41 EUR",
+        "label": "41 EUR",
+        "count": 47,
+        "checked": false
+      },
+      {
+        "value": "42 EUR",
+        "label": "42 EUR",
+        "count": 36,
+        "checked": false
+      },
+      {
+        "value": "42.5 EUR",
+        "label": "42.5 EUR",
+        "count": 12,
+        "checked": false
+      },
+      {
+        "value": "43 EUR",
+        "label": "43 EUR",
+        "count": 33,
+        "checked": false
+      },
+      {
+        "value": "43.5 EUR",
+        "label": "43.5 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "44 EUR",
+        "label": "44 EUR",
+        "count": 44,
+        "checked": false
+      },
+      {
+        "value": "44.5 EUR",
+        "label": "44.5 EUR",
+        "count": 16,
+        "checked": false
+      },
+      {
+        "value": "45 EUR",
+        "label": "45 EUR",
+        "count": 29,
+        "checked": false
+      },
+      {
+        "value": "45.5 EUR",
+        "label": "45.5 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "46 EUR",
+        "label": "46 EUR",
+        "count": 14,
+        "checked": false
+      },
+      {
+        "value": "46.5 EUR",
+        "label": "46.5 EUR",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "47 EUR",
+        "label": "47 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "48 EUR",
+        "label": "48 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "48-56",
+        "label": "48-56",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "49 EUR",
+        "label": "49 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "49.5 EUR",
+        "label": "49.5 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "5",
+        "label": "5",
+        "count": 6,
+        "checked": false
+      },
+      {
+        "value": "5XL",
+        "label": "5XL",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "5XS",
+        "label": "5XS",
+        "count": 91,
+        "checked": false
+      },
+      {
+        "value": "50 EUR",
+        "label": "50 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "51 EUR",
+        "label": "51 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "52 EUR",
+        "label": "52 EUR",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "6",
+        "label": "6",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "6 лет#5XS",
+        "label": "6 лет#5XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "6XL",
+        "label": "6XL",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "6XS",
+        "label": "6XS",
+        "count": 51,
+        "checked": false
+      },
+      {
+        "value": "6XS#5XS",
+        "label": "6XS#5XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "6,5",
+        "label": "6,5",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "6.5",
+        "label": "6.5",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "7",
+        "label": "7",
+        "count": 5,
+        "checked": false
+      },
+      {
+        "value": "7XL",
+        "label": "7XL",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "7XS",
+        "label": "7XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "7XS#6XS",
+        "label": "7XS#6XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "7,5",
+        "label": "7,5",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "7.5",
+        "label": "7.5",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "8",
+        "label": "8",
+        "count": 5,
+        "checked": false
+      },
+      {
+        "value": "8 лет",
+        "label": "8 лет",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "8 лет#10 лет#4XS#3XS",
+        "label": "8 лет#10 лет#4XS#3XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "8 лет#4XS",
+        "label": "8 лет#4XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "8XL",
+        "label": "8XL",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "8XS",
+        "label": "8XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "8XS#7XS",
+        "label": "8XS#7XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "8,5",
+        "label": "8,5",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "8.5",
+        "label": "8.5",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "9",
+        "label": "9",
+        "count": 4,
+        "checked": false
+      },
+      {
+        "value": "9XS",
+        "label": "9XS",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "90*15см",
+        "label": "90*15см",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "9,5",
+        "label": "9,5",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "9.5",
+        "label": "9.5",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "undefined",
+        "label": "",
+        "count": 0,
+        "checked": false
+      }
+    ],
+    "selects": null,
+    "range": null
+  },
+  {
+    "label": "Цвет",
+    "options": [
+      {
+        "value": "Баклажан",
+        "label": "Баклажан",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Бежевый",
+        "label": "Бежевый",
+        "count": 6,
+        "checked": false
+      },
+      {
+        "value": "Бежевый/Зеленый",
+        "label": "Бежевый/Зеленый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Бежевый/Темно-синий",
+        "label": "Бежевый/Темно-синий",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Бежевый/Черный",
+        "label": "Бежевый/Черный",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Белый",
+        "label": "Белый",
+        "count": 70,
+        "checked": false
+      },
+      {
+        "value": "Белый/Бирюзовый",
+        "label": "Белый/Бирюзовый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Белый/Желтый",
+        "label": "Белый/Желтый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Белый/Зеленый",
+        "label": "Белый/Зеленый",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "Белый/Золотой/Черный",
+        "label": "Белый/Золотой/Черный",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Белый/Красный",
+        "label": "Белый/Красный",
+        "count": 7,
+        "checked": false
+      },
+      {
+        "value": "Белый/Неоново-синий",
+        "label": "Белый/Неоново-синий",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Белый/Оранжевый",
+        "label": "Белый/Оранжевый",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "Белый/Розовый/Синий",
+        "label": "Белый/Розовый/Синий",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Белый/Серебристый",
+        "label": "Белый/Серебристый",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Белый/Серый",
+        "label": "Белый/Серый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Белый/Синий",
+        "label": "Белый/Синий",
+        "count": 9,
+        "checked": false
+      },
+      {
+        "value": "Белый/Синий/Зеленый",
+        "label": "Белый/Синий/Зеленый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Белый/Синий/Оранжевый",
+        "label": "Белый/Синий/Оранжевый",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "Белый/Темно-синий",
+        "label": "Белый/Темно-синий",
+        "count": 5,
+        "checked": false
+      },
+      {
+        "value": "Белый/Фиолетовый",
+        "label": "Белый/Фиолетовый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Белый/Черный",
+        "label": "Белый/Черный",
+        "count": 5,
+        "checked": false
+      },
+      {
+        "value": "Белый/Черный/Желтый",
+        "label": "Белый/Черный/Желтый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Белый/Черный/Красный",
+        "label": "Белый/Черный/Красный",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Белый/Черный/Оранжевый",
+        "label": "Белый/Черный/Оранжевый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Белый/Черный/Синий",
+        "label": "Белый/Черный/Синий",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Бирюзовый",
+        "label": "Бирюзовый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Бирюзовый/Синий",
+        "label": "Бирюзовый/Синий",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Бирюзовый/Темно-зеленый",
+        "label": "Бирюзовый/Темно-зеленый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Бордовый",
+        "label": "Бордовый",
+        "count": 8,
+        "checked": false
+      },
+      {
+        "value": "Васильковый/Мятный",
+        "label": "Васильковый/Мятный",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Голубой",
+        "label": "Голубой",
+        "count": 8,
+        "checked": false
+      },
+      {
+        "value": "Голубой/Белый",
+        "label": "Голубой/Белый",
+        "count": 4,
+        "checked": false
+      },
+      {
+        "value": "Голубой/Темно-синий",
+        "label": "Голубой/Темно-синий",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Горчичный/Темно-синий",
+        "label": "Горчичный/Темно-синий",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Графитовый",
+        "label": "Графитовый",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "Желтый",
+        "label": "Желтый",
+        "count": 9,
+        "checked": false
+      },
+      {
+        "value": "Желтый/Оранжевый",
+        "label": "Желтый/Оранжевый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Желтый/Синий",
+        "label": "Желтый/Синий",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Желтый/Черный",
+        "label": "Желтый/Черный",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "Зеленое яблоко",
+        "label": "Зеленое яблоко",
+        "count": 6,
+        "checked": false
+      },
+      {
+        "value": "Зеленый",
+        "label": "Зеленый",
+        "count": 20,
+        "checked": false
+      },
+      {
+        "value": "Зеленый/Белый",
+        "label": "Зеленый/Белый",
+        "count": 6,
+        "checked": false
+      },
+      {
+        "value": "Зеленый/Черный",
+        "label": "Зеленый/Черный",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "Коралловый",
+        "label": "Коралловый",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Коралловый/Белый",
+        "label": "Коралловый/Белый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Коричневый",
+        "label": "Коричневый",
+        "count": 4,
+        "checked": false
+      },
+      {
+        "value": "Красный",
+        "label": "Красный",
+        "count": 42,
+        "checked": false
+      },
+      {
+        "value": "Красный/Белый",
+        "label": "Красный/Белый",
+        "count": 6,
+        "checked": false
+      },
+      {
+        "value": "Красный/Золотой",
+        "label": "Красный/Золотой",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Красный/Темно-серый",
+        "label": "Красный/Темно-серый",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Красный/Темно-синий",
+        "label": "Красный/Темно-синий",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Красный/Черный",
+        "label": "Красный/Черный",
+        "count": 5,
+        "checked": false
+      },
+      {
+        "value": "Лайм/Черный",
+        "label": "Лайм/Черный",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Лимонный",
+        "label": "Лимонный",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Мятно-зеленый",
+        "label": "Мятно-зеленый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Мятный",
+        "label": "Мятный",
+        "count": 5,
+        "checked": false
+      },
+      {
+        "value": "Мятный/Черный",
+        "label": "Мятный/Черный",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Небесно-голубой",
+        "label": "Небесно-голубой",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "Небесный/Голубой",
+        "label": "Небесный/Голубой",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Неоново-желтый",
+        "label": "Неоново-желтый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Неоново-желтый/Темно-cиний",
+        "label": "Неоново-желтый/Темно-cиний",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "Неоново-желтый/Черный",
+        "label": "Неоново-желтый/Черный",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Неоново-зеленый",
+        "label": "Неоново-зеленый",
+        "count": 4,
+        "checked": false
+      },
+      {
+        "value": "Неоново-зеленый/Синий",
+        "label": "Неоново-зеленый/Синий",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Неоново-оранжевый/Черный",
+        "label": "Неоново-оранжевый/Черный",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Неоново-розовый",
+        "label": "Неоново-розовый",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "Неоново-синий",
+        "label": "Неоново-синий",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Неоново-синий/Темно-синий",
+        "label": "Неоново-синий/Темно-синий",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Неоново-синий/Черный",
+        "label": "Неоново-синий/Черный",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Неоновый розовый",
+        "label": "Неоновый розовый",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Оранжевый",
+        "label": "Оранжевый",
+        "count": 9,
+        "checked": false
+      },
+      {
+        "value": "Оранжевый флюор",
+        "label": "Оранжевый флюор",
+        "count": 5,
+        "checked": false
+      },
+      {
+        "value": "Оранжевый/Белый",
+        "label": "Оранжевый/Белый",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Оранжевый/Синий",
+        "label": "Оранжевый/Синий",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Оранжевый/Фуксия",
+        "label": "Оранжевый/Фуксия",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Оранжевый/Черный",
+        "label": "Оранжевый/Черный",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Пурпурный/Черный",
+        "label": "Пурпурный/Черный",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Розовый",
+        "label": "Розовый",
+        "count": 6,
+        "checked": false
+      },
+      {
+        "value": "Салатовый",
+        "label": "Салатовый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Салатовый/Темно-синий",
+        "label": "Салатовый/Темно-синий",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Сапфирово-голубой",
+        "label": "Сапфирово-голубой",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Сапфировый",
+        "label": "Сапфировый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Светло-серый/Серый",
+        "label": "Светло-серый/Серый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Светлый мятный",
+        "label": "Светлый мятный",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Серебристо-серый/Черный",
+        "label": "Серебристо-серый/Черный",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Серебряный",
+        "label": "Серебряный",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Серо-коричневый",
+        "label": "Серо-коричневый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Серый",
+        "label": "Серый",
+        "count": 17,
+        "checked": false
+      },
+      {
+        "value": "Серый меланж",
+        "label": "Серый меланж",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Серый/Оранжевый",
+        "label": "Серый/Оранжевый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Серый/Синий",
+        "label": "Серый/Синий",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "Синий",
+        "label": "Синий",
+        "count": 51,
+        "checked": false
+      },
+      {
+        "value": "Синий/Белый",
+        "label": "Синий/Белый",
+        "count": 12,
+        "checked": false
+      },
+      {
+        "value": "Синий/Зеленый",
+        "label": "Синий/Зеленый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Синий/Золотой",
+        "label": "Синий/Золотой",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Синий/Красный",
+        "label": "Синий/Красный",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "Синий/Оранжевый",
+        "label": "Синий/Оранжевый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Синий/Серый",
+        "label": "Синий/Серый",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Синий/Темно-синий",
+        "label": "Синий/Темно-синий",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "Синий/Черный",
+        "label": "Синий/Черный",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "Темно-зеленый",
+        "label": "Темно-зеленый",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Темно-серый",
+        "label": "Темно-серый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Темно-серый/Серый",
+        "label": "Темно-серый/Серый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Темно-серый/Черный",
+        "label": "Темно-серый/Черный",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Темно-синий",
+        "label": "Темно-синий",
+        "count": 65,
+        "checked": false
+      },
+      {
+        "value": "Темно-синий/Белый",
+        "label": "Темно-синий/Белый",
+        "count": 11,
+        "checked": false
+      },
+      {
+        "value": "Темно-синий/Голубой/Белый",
+        "label": "Темно-синий/Голубой/Белый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Темно-синий/Красный",
+        "label": "Темно-синий/Красный",
+        "count": 5,
+        "checked": false
+      },
+      {
+        "value": "Темно-синий/Красный/Белый",
+        "label": "Темно-синий/Красный/Белый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Темно-синий/Неоново-зеленый",
+        "label": "Темно-синий/Неоново-зеленый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Темно-синий/Неоново-оранжевый",
+        "label": "Темно-синий/Неоново-оранжевый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Темно-синий/Оранжевый",
+        "label": "Темно-синий/Оранжевый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Темно-синий/Синий/Белый",
+        "label": "Темно-синий/Синий/Белый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Ультрамариново-зеленый",
+        "label": "Ультрамариново-зеленый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Фиолетовый",
+        "label": "Фиолетовый",
+        "count": 6,
+        "checked": false
+      },
+      {
+        "value": "Фиолетовый/Белый",
+        "label": "Фиолетовый/Белый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Хаки/Коричневый",
+        "label": "Хаки/Коричневый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Цвет не задан",
+        "label": "Цвет не задан",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Черный",
+        "label": "Черный",
+        "count": 116,
+        "checked": false
+      },
+      {
+        "value": "Черный/Белый",
+        "label": "Черный/Белый",
+        "count": 13,
+        "checked": false
+      },
+      {
+        "value": "Черный/Горчичный",
+        "label": "Черный/Горчичный",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Черный/Графитовый",
+        "label": "Черный/Графитовый",
+        "count": 7,
+        "checked": false
+      },
+      {
+        "value": "Черный/Графитовый/Белый",
+        "label": "Черный/Графитовый/Белый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Черный/Желтый",
+        "label": "Черный/Желтый",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "Черный/Зеленый",
+        "label": "Черный/Зеленый",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "Черный/Золотой",
+        "label": "Черный/Золотой",
+        "count": 5,
+        "checked": false
+      },
+      {
+        "value": "Черный/Красный",
+        "label": "Черный/Красный",
+        "count": 5,
+        "checked": false
+      },
+      {
+        "value": "Черный/Красный/Белый",
+        "label": "Черный/Красный/Белый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Черный/Лайм",
+        "label": "Черный/Лайм",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Черный/Лимонный",
+        "label": "Черный/Лимонный",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "Черный/Неоново-желтый",
+        "label": "Черный/Неоново-желтый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Черный/Неоново-зеленый",
+        "label": "Черный/Неоново-зеленый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Черный/Оранжевый",
+        "label": "Черный/Оранжевый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Черный/Серебряный",
+        "label": "Черный/Серебряный",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Черный/Серый",
+        "label": "Черный/Серый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Черный/Синий",
+        "label": "Черный/Синий",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Черный/Темно-серый",
+        "label": "Черный/Темно-серый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Черный/Ультрамариново-зеленый/Белый",
+        "label": "Черный/Ультрамариново-зеленый/Белый",
+        "count": 1,
+        "checked": false
+      },
+      {
+        "value": "Черный/Фуксия",
+        "label": "Черный/Фуксия",
+        "count": 2,
+        "checked": false
+      },
+      {
+        "value": "Ярко-оранжевый",
+        "label": "Ярко-оранжевый",
+        "count": 3,
+        "checked": false
+      },
+      {
+        "value": "Ярко-оранжевый/Белый",
+        "label": "Ярко-оранжевый/Белый",
+        "count": 1,
+        "checked": false
+      }
+    ],
+    "selects": null,
+    "range": null
+  },
+  {
+    "label": "В наличии всего",
+    "options": [],
+    "selects": null,
+    "range": true
+  },
+  {
+    "label": "Цена",
+    "options": [],
+    "selects": null,
+    "range": true
+  },
+  {
+    "label": "В корзине",
+    "options": [
+      {
+        "value": "Y",
+        "label": "Да",
+        "count": 0,
+        "checked": false
+      },
+      {
+        "value": "N",
+        "label": "Нет",
+        "count": 727,
+        "checked": false
+      }
+    ],
+    "selects": null,
+    "range": null
+  },
+  {
+    "label": "Страна - производитель",
+    "options": [],
+    "selects": [
+      "Германия",
+      "Индия",
+      "Китай",
+      "Пакистан",
+      "Россия"
+    ],
+    "range": null
+  }
+]
