@@ -11,7 +11,12 @@ export function CartLink() {
         <path d="M6 7h12l-1 13H7L6 7Z" />
         <path d="M9 7a3 3 0 0 1 6 0" />
       </svg>
-      {count > 0 && <span className="badge">{count}</span>}
+      {count > 0 && (
+        // key перезапускает анимацию «подпрыгивания» при каждом изменении количества
+        <span key={count} className="badge">
+          {count}
+        </span>
+      )}
     </Link>
   );
 }

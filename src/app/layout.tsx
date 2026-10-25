@@ -4,6 +4,7 @@ import { Onest, Unbounded } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/components/CartProvider";
 import { CartLink } from "@/components/CartLink";
+import { Effects } from "@/components/Effects";
 import { getCurrentUser } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { STORE_NAME, STORE_TAGLINE, FREE_SHIPPING_FROM } from "@/lib/config";
@@ -32,6 +33,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="ru" className={`${body.variable} ${display.variable}`}>
       <body>
+        <Effects />
         <CartProvider>
           <div className="topbar">Бесплатная доставка от {formatPrice(FREE_SHIPPING_FROM)} и возврат в течение 30 дней</div>
           <header className="header">
