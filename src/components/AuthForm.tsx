@@ -38,16 +38,35 @@ export function AuthForm({ action, mode, next }: Props) {
         />
       </div>
       {mode === "register" && (
-        <label className="checkbox terms-check">
-          <input type="checkbox" name="terms" required />
-          <span>
-            Я принимаю{" "}
-            <Link href="/terms" target="_blank">
-              пользовательское соглашение
-            </Link>{" "}
-            и даю согласие на обработку персональных данных
-          </span>
-        </label>
+        <fieldset className="consents">
+          <legend className="visually-hidden">Согласия</legend>
+          <label className="checkbox terms-check">
+            <input type="checkbox" name="terms" required />
+            <span>
+              Принимаю{" "}
+              <Link href="/terms" target="_blank">
+                пользовательское соглашение
+              </Link>
+            </span>
+          </label>
+          <label className="checkbox terms-check">
+            <input type="checkbox" name="consent" required />
+            <span>
+              Даю{" "}
+              <Link href="/consent" target="_blank">
+                согласие на обработку персональных данных
+              </Link>{" "}
+              на условиях{" "}
+              <Link href="/privacy" target="_blank">
+                политики
+              </Link>
+            </span>
+          </label>
+          <label className="checkbox terms-check">
+            <input type="checkbox" name="adult" required />
+            <span>Мне исполнилось 18 лет</span>
+          </label>
+        </fieldset>
       )}
       <button className="btn btn-block" disabled={pending}>
         {mode === "login" ? "Войти" : "Зарегистрироваться"}

@@ -83,6 +83,17 @@ export function CheckoutForm({ defaultName, testMode }: { defaultName: string; t
         <button className="btn btn-red btn-block" style={{ marginTop: 16 }} disabled={pending}>
           {pending ? "Создаём платёж…" : "Перейти к оплате"}
         </button>
+        <p className="checkout-note">
+          Других платежей, кроме товаров и доставки, нет. Оплачивая заказ, вы принимаете{" "}
+          <Link href="/terms" target="_blank">
+            условия продажи
+          </Link>{" "}
+          и{" "}
+          <Link href="/returns" target="_blank">
+            условия возврата
+          </Link>
+          .
+        </p>
       </aside>
     </form>
   );

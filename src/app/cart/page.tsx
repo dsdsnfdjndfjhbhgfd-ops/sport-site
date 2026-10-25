@@ -35,14 +35,19 @@ export default function CartPage() {
                   <div className="meta">Размер: {item.size}</div>
                   <div className="row-actions" style={{ marginTop: 10 }}>
                     <div className="qty">
-                      <button onClick={() => setQuantity(item.productId, item.size, item.quantity - 1)}>−</button>
+                      <button onClick={() => setQuantity(item.productId, item.size, item.quantity - 1)} aria-label="Меньше">
+                        −
+                      </button>
                       <input
                         type="number"
+                        aria-label={`Количество: ${item.name}`}
                         min={1}
                         value={item.quantity}
                         onChange={(e) => setQuantity(item.productId, item.size, Number(e.target.value) || 1)}
                       />
-                      <button onClick={() => setQuantity(item.productId, item.size, item.quantity + 1)}>+</button>
+                      <button onClick={() => setQuantity(item.productId, item.size, item.quantity + 1)} aria-label="Больше">
+                        +
+                      </button>
                     </div>
                     <button className="link-btn" onClick={() => remove(item.productId, item.size)}>
                       Удалить

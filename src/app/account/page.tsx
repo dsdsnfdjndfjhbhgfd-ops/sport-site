@@ -4,11 +4,13 @@ import { db } from "@/lib/db";
 import { formatPrice } from "@/lib/money";
 import { ORDER_STATUSES } from "@/lib/orders";
 import { logout } from "@/app/actions/auth";
+import { DeleteAccountForm } from "./DeleteAccountForm";
 
 export const metadata = { title: "Личный кабинет" };
 
 export default async function AccountPage() {
   const user = await requireUser();
+  const consent = await db.user.findUnique({ where: { id: user.id }, select: { personalDataConsentAt: true } });
   const orders = await db.order.findMany({
     where: { userId: user.id },
     orderBy: { createdAt: "desc" },
@@ -63,6 +65,37 @@ export default async function AccountPage() {
           Заказов пока нет. <Link href="/catalog" style={{ textDecoration: "underline" }}>Перейти в каталог</Link>
         </p>
       )}
+
+      <section className="my-data">
+        <h2>Мои данные</h2>
+        <dl className="legal-details">
+          <dt>Имя</dt>
+          <dd>{user.name}</dd>
+          <dt>Электронная почта</dt>
+          <dd>{user.email}</dd>
+          {consent?.personalDataConsentAt && (
+            <>
+              <dt>Согласие на обработку данных</dt>
+              <dd>
+                дано {consent.personalDataConsentAt.toLocaleDateString("ru-RU")} —{" "}
+                <Link href="/consent">текст согласия</Link>
+              </dd>
+            </>
+          )}
+        </dl>
+        <p>
+          <a href="/api/account/export" download>
+            Скачать мои данные
+          </a>{" "}
+          <span className="muted">— учётная запись и заказы одним файлом</span>
+        </p>
+        <h3>Удаление учётной записи</h3>
+        <p className="muted">
+          Удаление отзывает согласие на обработку персональных данных. Как мы храним и удаляем данные — в{" "}
+          <Link href="/privacy">политике</Link>.
+        </p>
+        <DeleteAccountForm />
+      </section>
     </div>
   );
 }

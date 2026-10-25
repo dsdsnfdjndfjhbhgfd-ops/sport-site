@@ -18,6 +18,9 @@ model User {
   // когда и какую редакцию пользовательского соглашения принял при регистрации
   termsAcceptedAt DateTime?
   termsVersion    String?
+  // отдельное согласие на обработку персональных данных (152-ФЗ) и подтверждение возраста 18+
+  personalDataConsentAt DateTime?
+  adultConfirmedAt      DateTime?
   orders    Order[]
 }
 

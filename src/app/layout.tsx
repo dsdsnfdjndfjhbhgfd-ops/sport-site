@@ -6,9 +6,12 @@ import { CartProvider } from "@/components/CartProvider";
 import { CartLink } from "@/components/CartLink";
 import { Effects } from "@/components/Effects";
 import { CatalogMenu } from "@/components/CatalogMenu";
+import { CookieNotice } from "@/components/CookieNotice";
 import { getCurrentUser } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { STORE_NAME, STORE_TAGLINE, FREE_SHIPPING_FROM } from "@/lib/config";
+import { STORE_NAME, STORE_TAGLINE, FREE_SHIPPING_FROM, RETURN_DAYS } from "@/lib/config";
+import { LEGAL_PAGES, seller } from "@/lib/legal";
+import { plural } from "@/lib/plural";
 import { formatPrice } from "@/lib/money";
 
 const body = Onest({ subsets: ["latin", "cyrillic"], variable: "--font-body" });
@@ -37,9 +40,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="ru" className={`${body.variable} ${display.variable}`}>
       <body>
+        <a href="#main" className="skip-link">
+          Перейти к содержимому
+        </a>
         <Effects />
         <CartProvider>
-          <div className="topbar">Бесплатная доставка от {formatPrice(FREE_SHIPPING_FROM)} и возврат в течение 30 дней</div>
+          <div className="topbar">
+            Бесплатная доставка от {formatPrice(FREE_SHIPPING_FROM)} и возврат в течение {RETURN_DAYS}{" "}
+            {plural(RETURN_DAYS, "дня", "дней", "дней")}
+          </div>
           <header className="header">
             <div className="container header-inner">
               <Link href="/" className="logo">
@@ -75,7 +84,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               </div>
             </div>
           </header>
-          <main>{children}</main>
+          <main id="main" tabIndex={-1}>
+            {children}
+          </main>
           <footer className="footer">
             <div className="container footer-inner">
               <div>
@@ -89,15 +100,22 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 <Link href="/cart">Корзина</Link>
               </div>
               <div>
-                <h4>Помощь</h4>
-                <span>Доставка и оплата</span>
-                <span>Возврат и обмен</span>
-                <span>Таблица размеров</span>
-                <Link href="/terms">Пользовательское соглашение</Link>
+                <h4>Документы</h4>
+                {LEGAL_PAGES.map((p) => (
+                  <Link key={p.href} href={p.href}>
+                    {p.title}
+                  </Link>
+                ))}
               </div>
             </div>
-            <div className="container copyright">© {new Date().getFullYear()} {STORE_NAME}</div>
+            <div className="container copyright">
+              <p>
+                © {new Date().getFullYear()} {STORE_NAME}. Продавец: {seller.name}, ИНН {seller.inn}, ОГРН/ОГРНИП{" "}
+                {seller.ogrn}, адрес: {seller.address}. Почта: {seller.email}, телефон: {seller.phone}.
+              </p>
+            </div>
           </footer>
+          <CookieNotice />
         </CartProvider>
       </body>
     </html>
