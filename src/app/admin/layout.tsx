@@ -18,6 +18,9 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         <Link href="/" style={{ marginTop: 24 }}>
           ← На сайт
         </Link>
+        <a href="/api/health" className="admin-version">
+          Версия {process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) ?? "локальная"}
+        </a>
       </aside>
       <div className="admin-main">{children}</div>
     </div>
