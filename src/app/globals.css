@@ -350,7 +350,12 @@ main { min-height: 60vh; }
 .collection { margin-bottom: 64px; }
 .collection-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 24px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
 .collection-head h2 { margin: 0; }
-.collection-head span { color: var(--muted); font-size: 14px; white-space: nowrap; }
+.collection-head span, .collection-head > a { color: var(--muted); font-size: 14px; white-space: nowrap; }
+.collection-head > a:hover, .collection-head h2 a:hover { color: var(--ink); }
+.collection-text { color: var(--ink-soft); max-width: 680px; margin: -8px 0 24px; }
+.page-head .collection-text { margin: 12px 0 0; }
+.checks { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.checks .checkbox { margin-bottom: 0; }
 
 /* Tables (account + admin) */
 .table { width: 100%; border-collapse: collapse; font-size: 15px; }

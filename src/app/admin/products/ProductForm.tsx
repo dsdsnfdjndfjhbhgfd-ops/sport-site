@@ -7,8 +7,9 @@ import { PhotosEditor } from "./PhotosEditor";
 interface Props {
   action: (state: AdminFormState, data: FormData) => Promise<AdminFormState>;
   categories: { id: string; name: string }[];
-  /** уже встречающиеся значения — подсказки для полей сезона и характеристик */
-  suggestions: Record<"season" | "kind" | "material" | "color", string[]>;
+  collections: { id: string; name: string; active: boolean }[];
+  /** уже встречающиеся значения — подсказки для полей характеристик */
+  suggestions: Record<"kind" | "material" | "color", string[]>;
   product?: {
     name: string;
     description: string;
@@ -18,12 +19,12 @@ interface Props {
     sizes: { size: string; stock: number }[];
     imageUrl: string;
     images: { url: string }[];
-    season: string | null;
     kind: string | null;
     material: string | null;
     color: string | null;
     gender: string | null;
     active: boolean;
+    collections: { collectionId: string }[];
   };
 }
 
@@ -156,7 +157,7 @@ function SuggestField(props: { name: string; label: string; placeholder: string;
   );
 }
 
-export function ProductForm({ action, categories, suggestions, product }: Props) {
+export function ProductForm({ action, categories, collections, suggestions, product }: Props) {
   const [state, formAction, pending] = useActionState(action, {});
   const [uploading, setUploading] = useState(false);
   const images = product
@@ -219,13 +220,29 @@ export function ProductForm({ action, categories, suggestions, product }: Props)
           </select>
         </div>
       </div>
-      <SuggestField
-        name="season"
-        label="Сезонная коллекция"
-        placeholder="Например, Осень — зима 2026. Пусто — товар вне коллекций"
-        value={product?.season}
-        options={suggestions.season}
-      />
+      <div className="field">
+        <label>Коллекции</label>
+        {collections.length ? (
+          <div className="checks">
+            {collections.map((c) => (
+              <label key={c.id} className="checkbox">
+                <input
+                  type="checkbox"
+                  name="collections"
+                  value={c.id}
+                  defaultChecked={product?.collections.some((pc) => pc.collectionId === c.id)}
+                />
+                {c.name}
+                {!c.active && <span className="muted"> (скрыта)</span>}
+              </label>
+            ))}
+          </div>
+        ) : (
+          <span className="muted" style={{ fontSize: 14 }}>
+            Коллекций пока нет — их можно создать в разделе «Коллекции».
+          </span>
+        )}
+      </div>
       <div className="field">
         <label htmlFor="description">Описание</label>
         <textarea id="description" name="description" defaultValue={product?.description} required />

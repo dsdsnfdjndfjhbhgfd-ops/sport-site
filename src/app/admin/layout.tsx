@@ -13,6 +13,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         <Link href="/admin/products">Товары и цены</Link>
         <Link href="/admin/products/new">+ Добавить товар</Link>
         <Link href="/admin/categories">Категории</Link>
+        <Link href="/admin/collections">Коллекции</Link>
         <Link href="/admin/orders">Заказы</Link>
         <Link href="/admin/users">Пользователи</Link>
         <Link href="/" style={{ marginTop: 24 }}>

@@ -5,15 +5,16 @@ import { ProductForm } from "../ProductForm";
 import { listSuggestions } from "@/lib/suggestions";
 
 export default async function NewProduct() {
-  const [categories, suggestions] = await Promise.all([
+  const [categories, collections, suggestions] = await Promise.all([
     db.category.findMany({ orderBy: { name: "asc" } }),
+    db.collection.findMany({ orderBy: { position: "asc" } }),
     listSuggestions(),
   ]);
   return (
     <>
       <h1>Новый товар</h1>
       {categories.length ? (
-        <ProductForm action={saveProduct.bind(null, null)} categories={categories} suggestions={suggestions} />
+        <ProductForm action={saveProduct.bind(null, null)} categories={categories} collections={collections} suggestions={suggestions} />
       ) : (
         <div className="notice">
           Сначала <Link href="/admin/categories" style={{ textDecoration: "underline" }}>создайте категорию</Link>.

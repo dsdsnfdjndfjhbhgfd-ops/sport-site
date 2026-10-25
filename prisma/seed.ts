@@ -74,7 +74,6 @@ async function main() {
         price: price * 100,
         oldPrice: oldPrice ? oldPrice * 100 : null,
         imageUrl: `/products/${image}.webp`,
-        season: SEASONS[cat],
         kind: TRAITS[slug][0],
         material: TRAITS[slug][1],
         color: TRAITS[slug][2],
@@ -91,6 +90,21 @@ async function main() {
         },
       },
     });
+  }
+
+  // демо-коллекции по сезонам; товары встают в том порядке, в каком перечислены выше
+  for (const [position, name] of [...new Set(Object.values(SEASONS))].entries()) {
+    const slug = name.startsWith("Весна") ? "vesna-leto-2026" : "osen-zima-2026";
+    const collection = await db.collection.upsert({ where: { slug }, update: {}, create: { slug, name, position } });
+    const members = products.filter(([, , cat]) => SEASONS[cat] === name);
+    for (const [i, [productSlug]] of members.entries()) {
+      const product = await db.product.findUniqueOrThrow({ where: { slug: productSlug } });
+      await db.collectionItem.upsert({
+        where: { collectionId_productId: { collectionId: collection.id, productId: product.id } },
+        update: {},
+        create: { collectionId: collection.id, productId: product.id, position: i },
+      });
+    }
   }
 
   const email = (process.env.ADMIN_EMAIL || "admin@example.com").toLowerCase();

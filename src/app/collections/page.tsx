@@ -3,48 +3,56 @@ import { db } from "@/lib/db";
 import { ProductCard } from "@/components/ProductCard";
 import { plural } from "@/lib/plural";
 
-export const metadata = { title: "Сезонные коллекции" };
+export const metadata = { title: "Коллекции" };
 
-/** Товары, сгруппированные по сезону, который задаётся в админке у каждого товара. */
+/** Сколько товаров коллекции показывать на общей странице; остальные — на странице коллекции. */
+const PREVIEW = 8;
+
+/** Подборки товаров, которые собирают администраторы, в заданном ими порядке. */
 export default async function CollectionsPage() {
-  const products = await db.product.findMany({
-    where: { active: true, season: { not: null } },
-    orderBy: [{ season: "desc" }, { createdAt: "desc" }],
-    include: { category: true },
+  const collections = await db.collection.findMany({
+    where: { active: true },
+    orderBy: [{ position: "asc" }, { createdAt: "asc" }],
+    include: {
+      items: {
+        where: { product: { active: true } },
+        orderBy: { position: "asc" },
+        include: { product: { include: { category: true } } },
+      },
+    },
   });
-  const seasons = new Map<string, typeof products>();
-  for (const p of products) {
-    const list = seasons.get(p.season!) ?? [];
-    list.push(p);
-    seasons.set(p.season!, list);
-  }
+  const shown = collections.filter((c) => c.items.length);
 
   return (
     <div className="container" style={{ paddingBottom: 96 }}>
       <div className="page-head">
         <div className="crumbs">
-          <Link href="/">Главная</Link> / Сезонные коллекции
+          <Link href="/">Главная</Link> / Коллекции
         </div>
-        <h1>Сезонные коллекции</h1>
+        <h1>Коллекции</h1>
       </div>
-      {[...seasons].map(([season, items]) => (
-        <section key={season} className="collection">
+      {shown.map((c) => (
+        <section key={c.id} className="collection">
           <div className="collection-head">
-            <h2>{season}</h2>
-            <span>
-              {items.length} {plural(items.length, "товар", "товара", "товаров")}
-            </span>
+            <h2>
+              <Link href={`/collections/${c.slug}`}>{c.name}</Link>
+            </h2>
+            <Link href={`/collections/${c.slug}`}>
+              {c.items.length > PREVIEW ? "Все " : ""}
+              {c.items.length} {plural(c.items.length, "товар", "товара", "товаров")}
+            </Link>
           </div>
+          {c.description && <p className="collection-text">{c.description}</p>}
           <div className="grid">
-            {items.map((p) => (
-              <ProductCard key={p.id} product={p} />
+            {c.items.slice(0, PREVIEW).map(({ product }) => (
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </section>
       ))}
-      {!seasons.size && (
+      {!shown.length && (
         <div className="empty">
-          <p>Коллекций пока нет. Укажите сезон у товаров в админке, и они появятся здесь.</p>
+          <p>Коллекций пока нет. Скоро здесь появятся подборки товаров.</p>
           <Link href="/catalog" className="btn">
             В торговый каталог
           </Link>

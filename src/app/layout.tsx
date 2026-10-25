@@ -26,12 +26,12 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const [user, categories, trade, all, seasons] = await Promise.all([
+  const [user, categories, trade, all, collections] = await Promise.all([
     getCurrentUser(),
     db.category.findMany({ orderBy: { name: "asc" } }),
     db.product.count({ where: { active: true, sizes: { some: { stock: { gt: 0 } } } } }),
     db.product.count({ where: { active: true } }),
-    db.product.groupBy({ by: ["season"], where: { active: true, season: { not: null } } }),
+    db.collection.count({ where: { active: true, items: { some: { product: { active: true } } } } }),
   ]);
 
   return (
@@ -46,7 +46,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 {STORE_NAME}
               </Link>
               <nav className="nav">
-                <CatalogMenu counts={{ trade, all, seasons: seasons.length }} />
+                <CatalogMenu counts={{ trade, all, collections }} />
                 {categories.map((c) => (
                   <Link key={c.id} href={`/catalog?category=${c.slug}`}>
                     {c.name}

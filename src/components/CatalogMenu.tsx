@@ -7,7 +7,7 @@ import { plural } from "@/lib/plural";
 
 interface Props {
   /** товаров в продаже, позиций в номенклаторе, сезонных коллекций */
-  counts: { trade: number; all: number; seasons: number };
+  counts: { trade: number; all: number; collections: number };
 }
 
 /** Кнопка «Каталог» в шапке: по нажатию выезжает панель с тремя видами каталога. */
@@ -54,10 +54,10 @@ export function CatalogMenu({ counts }: Props) {
     },
     {
       href: "/collections",
-      title: "Сезонные коллекции",
-      text: "Подборки по сезонам: что носить на тренировках весной, летом, осенью и зимой.",
-      meta: counts.seasons
-        ? `${counts.seasons} ${plural(counts.seasons, "коллекция", "коллекции", "коллекций")}`
+      title: "Коллекции",
+      text: "Подборки товаров: сезонные линейки, экипировка для команды и другое.",
+      meta: counts.collections
+        ? `${counts.collections} ${plural(counts.collections, "коллекция", "коллекции", "коллекций")}`
         : "Скоро",
       icon: (
         <>

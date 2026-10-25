@@ -22,6 +22,7 @@ export default async function ProductPage({ params }: Params) {
       category: true,
       sizes: { orderBy: { position: "asc" } },
       images: { orderBy: { position: "asc" } },
+      collections: { where: { collection: { active: true } }, include: { collection: true } },
     },
   });
   if (!product || !product.active) notFound();
@@ -37,7 +38,7 @@ export default async function ProductPage({ params }: Params) {
       ["Материал", product.material],
       ["Цвет", product.color],
       ["Пол", product.gender],
-      ["Коллекция", product.season],
+      ["Коллекция", product.collections.map((c) => c.collection.name).join(", ")],
     ] as [string, string | null][]
   ).filter((t): t is [string, string] => Boolean(t[1]));
   const onSale = product.oldPrice && product.oldPrice > product.price;
