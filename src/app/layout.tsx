@@ -87,6 +87,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 <span>Доставка и оплата</span>
                 <span>Возврат и обмен</span>
                 <span>Таблица размеров</span>
+                <Link href="/terms">Пользовательское соглашение</Link>
               </div>
             </div>
             <div className="container copyright">© {new Date().getFullYear()} {STORE_NAME}</div>
