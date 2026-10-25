@@ -82,12 +82,11 @@ async function toggleFacet(page, groupLabel, value) {
     });
     const i = c && [...c.querySelectorAll('input[type=checkbox]')].find((x) => x.value === value);
     if (!i) return null;
-    document.querySelectorAll('[data-ekip-target]').forEach((e) => e.removeAttribute('data-ekip-target'));
-    i.closest('.apex-item-option').setAttribute('data-ekip-target', '1');
+    // клик через JS: часть вариантов скрыта под «Показать больше»
+    i.closest('.apex-item-option').click();
     return i.id;
   }, { groupLabel, value });
   if (!id) throw new Error(`facet ${groupLabel}=${value} not found`);
-  await page.click('[data-ekip-target="1"]');
   const r = await done;
   // ждём, пока индикатор загрузки исчезнет
   await page.waitForFunction(() => !document.querySelector('#catalog .u-Processing, .u-Processing'), null, { timeout: 30000 }).catch(() => {});
