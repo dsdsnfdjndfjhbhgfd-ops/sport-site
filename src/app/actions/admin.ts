@@ -65,6 +65,9 @@ export async function uploadImage(formData: FormData): Promise<{ url?: string; e
 const IMAGE_URL = /^(\/[^\s]*|https?:\/\/[^\s]+)$/;
 const STORED_IMAGE = /^\/api\/images\/([^/?#]+)$/;
 
+/** Необязательное текстовое поле формы: пустая строка становится null. */
+const text = (formData: FormData, name: string) => String(formData.get(name) || "").trim() || null;
+
 const productSchema = z.object({
   name: z.string().trim().min(2, "Введите название"),
   description: z.string().trim().min(1, "Введите описание"),
@@ -116,6 +119,11 @@ export async function saveProduct(
     price,
     oldPrice: oldPrice && oldPrice > price ? oldPrice : null,
     imageUrl: images[0],
+    season: text(formData, "season"),
+    kind: text(formData, "kind"),
+    material: text(formData, "material"),
+    color: text(formData, "color"),
+    gender: text(formData, "gender"),
     active: formData.get("active") === "on",
   };
 

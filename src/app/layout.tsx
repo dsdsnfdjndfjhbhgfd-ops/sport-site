@@ -5,6 +5,7 @@ import "./globals.css";
 import { CartProvider } from "@/components/CartProvider";
 import { CartLink } from "@/components/CartLink";
 import { Effects } from "@/components/Effects";
+import { CatalogMenu } from "@/components/CatalogMenu";
 import { getCurrentUser } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { STORE_NAME, STORE_TAGLINE, FREE_SHIPPING_FROM } from "@/lib/config";
@@ -25,9 +26,12 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const [user, categories] = await Promise.all([
+  const [user, categories, trade, all, seasons] = await Promise.all([
     getCurrentUser(),
     db.category.findMany({ orderBy: { name: "asc" } }),
+    db.product.count({ where: { active: true, sizes: { some: { stock: { gt: 0 } } } } }),
+    db.product.count({ where: { active: true } }),
+    db.product.groupBy({ by: ["season"], where: { active: true, season: { not: null } } }),
   ]);
 
   return (
@@ -42,7 +46,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 {STORE_NAME}
               </Link>
               <nav className="nav">
-                <Link href="/catalog">Каталог</Link>
+                <CatalogMenu counts={{ trade, all, seasons: seasons.length }} />
                 {categories.map((c) => (
                   <Link key={c.id} href={`/catalog?category=${c.slug}`}>
                     {c.name}

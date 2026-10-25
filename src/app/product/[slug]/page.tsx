@@ -31,6 +31,15 @@ export default async function ProductPage({ params }: Params) {
     take: 4,
     include: { category: true },
   });
+  const traits = (
+    [
+      ["Тип", product.kind],
+      ["Материал", product.material],
+      ["Цвет", product.color],
+      ["Пол", product.gender],
+      ["Коллекция", product.season],
+    ] as [string, string | null][]
+  ).filter((t): t is [string, string] => Boolean(t[1]));
   const onSale = product.oldPrice && product.oldPrice > product.price;
 
   return (
@@ -60,6 +69,16 @@ export default async function ProductPage({ params }: Params) {
             }}
             sizes={product.sizes.map(({ size, stock }) => ({ size, stock }))}
           />
+          {traits.length > 0 && (
+            <dl className="traits">
+              {traits.map(([label, value]) => (
+                <div key={label}>
+                  <dt>{label}</dt>
+                  <dd>{value}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
           <h3 style={{ marginTop: 32 }}>Описание</h3>
           <p className="description">{product.description}</p>
           <ul className="perks">
