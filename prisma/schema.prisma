@@ -18,6 +18,9 @@ model User {
   // когда и какую редакцию пользовательского соглашения принял при регистрации
   termsAcceptedAt DateTime?
   termsVersion    String?
+  // отдельное согласие на обработку персональных данных (152-ФЗ) и подтверждение возраста 18+
+  personalDataConsentAt DateTime?
+  adultConfirmedAt      DateTime?
   orders    Order[]
 }
 
@@ -36,8 +39,6 @@ model Product {
   price       Int // в копейках
   oldPrice    Int?
   imageUrl    String
-  // сезонная коллекция, например «Осень — зима 2026»; пусто — товар вне коллекций
-  season      String?
   // характеристики для фильтров каталога; пусто — не указано
   kind        String? // тип вещи: футболка, шорты, бутсы…
   material    String?
@@ -51,6 +52,7 @@ model Product {
   orderItems  OrderItem[]
   sizes       ProductSize[]
   images      ProductImage[]
+  collections CollectionItem[]
 
   @@index([categoryId])
 }
@@ -78,6 +80,31 @@ model ProductSize {
   position  Int     @default(0)
 
   @@unique([productId, size])
+}
+
+// Подборка товаров, которую собирает администратор: «Осень — зима 2026», «Для вратарей»…
+// position — порядок коллекций на странице /collections.
+model Collection {
+  id          String           @id @default(cuid())
+  slug        String           @unique
+  name        String
+  description String?
+  active      Boolean          @default(true)
+  position    Int              @default(0)
+  createdAt   DateTime         @default(now())
+  items       CollectionItem[]
+}
+
+// Товар в коллекции; position — порядок товаров внутри коллекции.
+model CollectionItem {
+  collectionId String
+  collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  productId    String
+  product      Product    @relation(fields: [productId], references: [id], onDelete: Cascade)
+  position     Int        @default(0)
+
+  @@id([collectionId, productId])
+  @@index([productId])
 }
 
 model Order {

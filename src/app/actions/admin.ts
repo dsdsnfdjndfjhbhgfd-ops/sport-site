@@ -10,6 +10,7 @@ import { ORDER_STATUSES } from "@/lib/orders";
 
 export interface AdminFormState {
   error?: string;
+  saved?: boolean;
 }
 
 const IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp", "image/svg+xml"];
@@ -29,12 +30,11 @@ function slugify(text: string) {
     .replace(/^-+|-+$/g, "");
 }
 
-async function uniqueSlug(base: string, excludeId?: string) {
+async function uniqueSlug(base: string, find: (slug: string) => Promise<{ id: string } | null>) {
   const root = slugify(base) || "item";
   let slug = root;
   for (let i = 2; ; i++) {
-    const existing = await db.product.findUnique({ where: { slug } });
-    if (!existing || existing.id === excludeId) return slug;
+    if (!(await find(slug))) return slug;
     slug = `${root}-${i}`;
   }
 }
@@ -119,7 +119,6 @@ export async function saveProduct(
     price,
     oldPrice: oldPrice && oldPrice > price ? oldPrice : null,
     imageUrl: images[0],
-    season: text(formData, "season"),
     kind: text(formData, "kind"),
     material: text(formData, "material"),
     color: text(formData, "color"),
@@ -127,7 +126,8 @@ export async function saveProduct(
     active: formData.get("active") === "on",
   };
 
-  const slug = productId ? undefined : await uniqueSlug(data.name);
+  const collectionIds = formData.getAll("collections").map(String);
+  const slug = productId ? undefined : await uniqueSlug(data.name, (slug) => db.product.findUnique({ where: { slug } }));
   const before = productId ? await db.productImage.findMany({ where: { productId } }) : [];
   await db.$transaction(async (tx) => {
     const product = productId
@@ -145,6 +145,16 @@ export async function saveProduct(
         where: { productId_size: { productId: product.id, size } },
         update: { stock, position },
         create: { productId: product.id, size, stock, position },
+      });
+    }
+    await tx.collectionItem.deleteMany({ where: { productId: product.id, collectionId: { notIn: collectionIds } } });
+    const current = await tx.collectionItem.findMany({ where: { productId: product.id } });
+    for (const collectionId of collectionIds) {
+      if (current.some((c) => c.collectionId === collectionId)) continue;
+      // новый товар встаёт в конец коллекции
+      const last = await tx.collectionItem.aggregate({ where: { collectionId }, _max: { position: true } });
+      await tx.collectionItem.create({
+        data: { collectionId, productId: product.id, position: (last._max.position ?? -1) + 1 },
       });
     }
   });
@@ -215,6 +225,124 @@ export async function deleteCategory(categoryId: string) {
   await requireAdmin();
   if ((await db.product.count({ where: { categoryId } })) > 0) return;
   await db.category.delete({ where: { id: categoryId } });
+  revalidatePath("/", "layout");
+}
+
+const collectionSchema = z.object({
+  name: z.string().trim().min(2, "Введите название коллекции"),
+  description: z.string().trim(),
+});
+
+export async function createCollection(_: AdminFormState, formData: FormData): Promise<AdminFormState> {
+  await requireAdmin();
+  const parsed = collectionSchema.safeParse({ name: formData.get("name"), description: "" });
+  if (!parsed.success) return { error: parsed.error.issues[0].message };
+  const slug = await uniqueSlug(parsed.data.name, (slug) => db.collection.findUnique({ where: { slug } }));
+  const last = await db.collection.aggregate({ _max: { position: true } });
+  const collection = await db.collection.create({
+    data: { name: parsed.data.name, slug, position: (last._max.position ?? -1) + 1 },
+  });
+  revalidatePath("/", "layout");
+  redirect(`/admin/collections/${collection.id}`);
+}
+
+export async function updateCollection(
+  collectionId: string,
+  _: AdminFormState,
+  formData: FormData,
+): Promise<AdminFormState> {
+  await requireAdmin();
+  const parsed = collectionSchema.safeParse({
+    name: formData.get("name"),
+    description: formData.get("description") ?? "",
+  });
+  if (!parsed.success) return { error: parsed.error.issues[0].message };
+  // адрес коллекции не меняется при переименовании, чтобы не ломать ссылки
+  await db.collection.update({
+    where: { id: collectionId },
+    data: {
+      name: parsed.data.name,
+      description: parsed.data.description || null,
+      active: formData.get("active") === "on",
+    },
+  });
+  revalidatePath("/", "layout");
+  return { saved: true };
+}
+
+export async function deleteCollection(collectionId: string) {
+  await requireAdmin();
+  // товары остаются в каталоге, удаляется только подборка
+  await db.collection.delete({ where: { id: collectionId } });
+  revalidatePath("/", "layout");
+  redirect("/admin/collections");
+}
+
+/** Меняет местами соседние элементы списка, упорядоченного по position. */
+async function swapWithNeighbour<T extends { position: number }>(
+  list: T[],
+  index: number,
+  direction: "up" | "down",
+  save: (item: T, position: number) => Promise<unknown>,
+) {
+  const other = direction === "up" ? index - 1 : index + 1;
+  if (index < 0 || other < 0 || other >= list.length) return;
+  await Promise.all([save(list[index], list[other].position), save(list[other], list[index].position)]);
+}
+
+export async function moveCollection(collectionId: string, direction: "up" | "down") {
+  await requireAdmin();
+  const list = await db.collection.findMany({ orderBy: [{ position: "asc" }, { createdAt: "asc" }] });
+  await swapWithNeighbour(
+    list,
+    list.findIndex((c) => c.id === collectionId),
+    direction,
+    (c, position) => db.collection.update({ where: { id: c.id }, data: { position } }),
+  );
+  revalidatePath("/", "layout");
+}
+
+export async function moveCollectionItem(collectionId: string, productId: string, direction: "up" | "down") {
+  await requireAdmin();
+  const list = await db.collectionItem.findMany({ where: { collectionId }, orderBy: { position: "asc" } });
+  await swapWithNeighbour(
+    list,
+    list.findIndex((i) => i.productId === productId),
+    direction,
+    (i, position) =>
+      db.collectionItem.update({
+        where: { collectionId_productId: { collectionId, productId: i.productId } },
+        data: { position },
+      }),
+  );
+  revalidatePath("/", "layout");
+}
+
+export async function removeCollectionItem(collectionId: string, productId: string) {
+  await requireAdmin();
+  await db.collectionItem.deleteMany({ where: { collectionId, productId } });
+  revalidatePath("/", "layout");
+}
+
+export async function removeFromCollection(collectionId: string, formData: FormData) {
+  await requireAdmin();
+  const productIds = formData.getAll("productId").map(String);
+  if (!productIds.length) return;
+  await db.collectionItem.deleteMany({ where: { collectionId, productId: { in: productIds } } });
+  revalidatePath("/", "layout");
+}
+
+/** Добавляет товары в конец коллекции; уже добавленные пропускает. */
+export async function addToCollection(collectionId: string, formData: FormData) {
+  await requireAdmin();
+  const productIds = [...new Set(formData.getAll("productId").map(String))];
+  if (!productIds.length) return;
+  const last = await db.collectionItem.aggregate({ where: { collectionId }, _max: { position: true } });
+  const start = (last._max.position ?? -1) + 1;
+  await db.collectionItem.createMany({
+    data: productIds.map((productId, i) => ({ collectionId, productId, position: start + i })),
+    skipDuplicates: true,
+  });
   revalidatePath("/", "layout");
 }
 

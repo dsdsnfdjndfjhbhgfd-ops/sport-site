@@ -2,6 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { db } from "@/lib/db";
 import { formatPrice } from "@/lib/money";
+import { FREE_SHIPPING_FROM, RETURN_DAYS, SHIPPING_PRICE } from "@/lib/config";
+import { plural } from "@/lib/plural";
 import { ProductCard } from "@/components/ProductCard";
 import { AddToCart } from "./AddToCart";
 import { ProductGallery } from "./ProductGallery";
@@ -22,6 +24,7 @@ export default async function ProductPage({ params }: Params) {
       category: true,
       sizes: { orderBy: { position: "asc" } },
       images: { orderBy: { position: "asc" } },
+      collections: { where: { collection: { active: true } }, include: { collection: true } },
     },
   });
   if (!product || !product.active) notFound();
@@ -37,7 +40,7 @@ export default async function ProductPage({ params }: Params) {
       ["Материал", product.material],
       ["Цвет", product.color],
       ["Пол", product.gender],
-      ["Коллекция", product.season],
+      ["Коллекция", product.collections.map((c) => c.collection.name).join(", ")],
     ] as [string, string | null][]
   ).filter((t): t is [string, string] => Boolean(t[1]));
   const onSale = product.oldPrice && product.oldPrice > product.price;
@@ -82,9 +85,15 @@ export default async function ProductPage({ params }: Params) {
           <h3 style={{ marginTop: 32 }}>Описание</h3>
           <p className="description">{product.description}</p>
           <ul className="perks">
-            <li>Доставка по всей России</li>
-            <li>Бесплатный возврат в течение 30 дней</li>
-            <li>Безопасная онлайн-оплата</li>
+            <li>
+              Доставка по России — {formatPrice(SHIPPING_PRICE)}, от {formatPrice(FREE_SHIPPING_FROM)} бесплатно.{" "}
+              <Link href="/delivery">Подробнее</Link>
+            </li>
+            <li>
+              Возврат в течение {RETURN_DAYS} {plural(RETURN_DAYS, "дня", "дней", "дней")}.{" "}
+              <Link href="/returns">Условия</Link>
+            </li>
+            <li>Оплата картой на странице платёжного сервиса</li>
           </ul>
         </div>
       </div>

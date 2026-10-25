@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { db } from "@/lib/db";
 import { ProductCard } from "@/components/ProductCard";
+import { RETURN_DAYS } from "@/lib/config";
+import { plural } from "@/lib/plural";
 
 export default async function HomePage() {
-  const [categories, newest, sale] = await Promise.all([
+  const [categories, newest, sale, discounted] = await Promise.all([
     db.category.findMany({
       orderBy: { name: "asc" },
       include: { products: { where: { active: true }, take: 1, orderBy: { createdAt: "desc" } } },
@@ -19,7 +21,12 @@ export default async function HomePage() {
       take: 4,
       include: { category: true },
     }),
+    db.product.findMany({ where: { active: true, oldPrice: { not: null } }, select: { price: true, oldPrice: true } }),
   ]);
+  const maxDiscount = Math.max(
+    0,
+    ...discounted.map((p) => (p.oldPrice! > p.price ? Math.floor((1 - p.price / p.oldPrice!) * 100) : 0)),
+  );
 
   return (
     <>
@@ -46,7 +53,10 @@ export default async function HomePage() {
         </svg>
         <div className="container hero-inner">
           <h1>Экипировка для тех, кто тренируется всерьёз</h1>
-          <p>Форма, тренировочная одежда и обувь для футбола, бега и зала. Дышащие ткани, точный крой, возврат в течение 30 дней.</p>
+          <p>
+            Форма, тренировочная одежда и обувь для футбола, бега и зала. Возврат в течение {RETURN_DAYS}{" "}
+            {plural(RETURN_DAYS, "дня", "дней", "дней")}.
+          </p>
           <div className="hero-actions">
             <Link href="/catalog" className="btn btn-red">
               Смотреть каталог
@@ -93,14 +103,17 @@ export default async function HomePage() {
         )}
       </section>
 
-      <section className="promo">
-        <div className="container">
-          <h2>Прошлый сезон со скидкой до 40%</h2>
-          <Link href="/catalog?sale=1" className="btn btn-white">
-            Купить со скидкой
-          </Link>
-        </div>
-      </section>
+      {/* размер скидки считается по реальным ценам, а не задан заранее */}
+      {maxDiscount > 0 && (
+        <section className="promo">
+          <div className="container">
+            <h2>Скидки до {maxDiscount}%</h2>
+            <Link href="/catalog?sale=1" className="btn btn-white">
+              Смотреть распродажу
+            </Link>
+          </div>
+        </section>
+      )}
 
       {sale.length > 0 && (
         <section className="section container">

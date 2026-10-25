@@ -66,12 +66,11 @@ export function AddToCart({ product, sizes }: Props) {
           </div>
         </>
       )}
-      <p className={available > 0 && available <= 3 ? "stock-line stock-low" : "stock-line"}>
+      {/* наличие — спокойным текстом, без красного «осталось всего», чтобы не подгонять с покупкой */}
+      <p className="stock-line">
         {named.length && !size
-          ? "Под каждым размером указано, сколько штук осталось"
-          : available <= 3
-            ? `Осталось всего ${available} шт.${size ? ` размера ${size}` : ""}`
-            : `В наличии ${available} шт.${size ? ` размера ${size}` : ""}`}
+          ? "Под каждым размером указано, сколько штук в наличии"
+          : `В наличии ${available} шт.${size ? ` размера ${size}` : ""}`}
       </p>
       <div className="buy-row">
         <div className="qty">
@@ -80,6 +79,7 @@ export function AddToCart({ product, sizes }: Props) {
           </button>
           <input
             type="number"
+            aria-label="Количество"
             min={1}
             max={Math.max(available, 1)}
             value={quantity}
