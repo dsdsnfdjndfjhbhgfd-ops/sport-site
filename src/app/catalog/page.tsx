@@ -4,7 +4,7 @@ import { db } from "@/lib/db";
 import { ProductCard } from "@/components/ProductCard";
 import { SortSelect } from "./SortSelect";
 
-export const metadata = { title: "Каталог" };
+export const metadata = { title: "Торговый каталог" };
 
 type Search = { category?: string; q?: string; sort?: string; sale?: string };
 
@@ -20,7 +20,8 @@ export default async function CatalogPage({ searchParams }: { searchParams: Prom
   const categories = await db.category.findMany({ orderBy: { name: "asc" } });
   const current = categories.find((c) => c.slug === category);
 
-  const where: Prisma.ProductWhereInput = { active: true };
+  // торговый каталог — только то, что можно купить; полный перечень в номенклаторе
+  const where: Prisma.ProductWhereInput = { active: true, sizes: { some: { stock: { gt: 0 } } } };
   if (current) where.categoryId = current.id;
   if (sale) where.oldPrice = { not: null };
   if (q) where.OR = [{ name: { contains: q } }, { description: { contains: q } }];
@@ -39,13 +40,13 @@ export default async function CatalogPage({ searchParams }: { searchParams: Prom
     return `/catalog${qs.size ? `?${qs}` : ""}`;
   };
 
-  const title = q ? `Поиск: ${q}` : sale ? "Распродажа" : current?.name ?? "Каталог";
+  const title = q ? `Поиск: ${q}` : sale ? "Распродажа" : current?.name ?? "Торговый каталог";
 
   return (
     <div className="container">
       <div className="page-head">
         <div className="crumbs">
-          <Link href="/">Главная</Link> / <Link href="/catalog">Каталог</Link>
+          <Link href="/">Главная</Link> / <Link href="/catalog">Торговый каталог</Link>
           {current && <> / {current.name}</>}
         </div>
         <h1>{title}</h1>

@@ -36,6 +36,8 @@ model Product {
   price       Int // в копейках
   oldPrice    Int?
   imageUrl    String
+  // сезонная коллекция, например «Осень — зима 2026»; пусто — товар вне коллекций
+  season      String?
   active      Boolean     @default(true)
   categoryId  String
   category    Category    @relation(fields: [categoryId], references: [id])
