@@ -24,17 +24,19 @@ export default async function HomePage() {
   return (
     <>
       <section className="hero">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="hero-photo" src="/hero-stadium.webp" alt="" aria-hidden="true" />
         <svg className="hero-pitch" viewBox="0 0 1200 760" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
           <g fill="none" stroke="currentColor" strokeWidth="1.5">
-            <rect x="40" y="40" width="1120" height="680" />
-            <line x1="600" y1="40" x2="600" y2="720" />
-            <circle cx="600" cy="380" r="110" />
-            <rect x="976" y="200" width="184" height="360" />
-            <rect x="1098" y="290" width="62" height="180" />
-            <path d="M976 302a96 96 0 0 0 0 156" />
-            <rect x="40" y="200" width="184" height="360" />
-            <rect x="40" y="290" width="62" height="180" />
-            <path d="M224 302a96 96 0 0 1 0 156" />
+            <rect pathLength={1} x="40" y="40" width="1120" height="680" />
+            <line pathLength={1} x1="600" y1="40" x2="600" y2="720" />
+            <circle pathLength={1} cx="600" cy="380" r="110" />
+            <rect pathLength={1} x="976" y="200" width="184" height="360" />
+            <rect pathLength={1} x="1098" y="290" width="62" height="180" />
+            <path pathLength={1} d="M976 302a96 96 0 0 0 0 156" />
+            <rect pathLength={1} x="40" y="200" width="184" height="360" />
+            <rect pathLength={1} x="40" y="290" width="62" height="180" />
+            <path pathLength={1} d="M224 302a96 96 0 0 1 0 156" />
           </g>
           <g fill="currentColor">
             <circle cx="600" cy="380" r="4" />
